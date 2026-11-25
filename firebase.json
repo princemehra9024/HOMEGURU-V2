@@ -1,0 +1,44 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [
+      { "source": "/teacher-setup", "destination": "/teacher-setup.html" },
+      { "source": "/teacher-profile", "destination": "/teacher-profile.html" },
+      { "source": "/teacher-portal", "destination": "/teacher-portal.html" },
+      { "source": "/parent-portal", "destination": "/parent-portal.html" },
+      { "source": "/admin-panel", "destination": "/admin-panel.html" },
+      { "source": "/profile", "destination": "/profile.html" },
+      { "source": "/search", "destination": "/search.html" },
+      { "source": "/login", "destination": "/login.html" },
+      { "source": "/wellbeing", "destination": "/wellbeing.html" },
+      { "source": "/rankings", "destination": "/rankings.html" }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=86400"
+          }
+        ]
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

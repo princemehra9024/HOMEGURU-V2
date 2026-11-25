@@ -1,0 +1,40 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Educator verified marksheets, degree certificates & ID cards
+    match /educators/{educatorId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Student profile pictures
+    match /students/{studentId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == studentId;
+    }
+
+    // Academic Reports (PDFs, Images, Performance Cards)
+    match /reports/{teacherUid}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == teacherUid;
+    }
+
+    // Examination Papers & Marksheets
+    match /examinations/{examId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Class & Subject Syllabus Documents
+    match /syllabus/{className}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Teacher Announcements & Homework Attachments
+    match /announcements/{announcementId}/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+  }
+}

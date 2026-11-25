@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educator Profile &amp; Student Management | HomeGuru</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    /* ==========================================================================
+       HomeGuru Dedicated Teacher Profile & Student Management Dashboard
+       Displays Teacher ID, teaching metrics, and interactive Student Cards
+       ========================================================================== */
+    .teacher-hero-banner {
+      background: linear-gradient(145deg, #123C32 0%, #0A241E 100%);
+      border-radius: var(--radius-lg);
+      padding: 38px 42px;
+      color: #FAF7F2;
+      border: 1px solid rgba(212, 164, 55, 0.3);
+      box-shadow: 0 16px 40px rgba(18, 60, 50, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    .teacher-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .teacher-large-avatar-wrap {
+      position: relative;
+    }
+
+    .teacher-large-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      object-fit: cover;
+      border: 3.5px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .teacher-verified-badge-icon {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      width: 32px;
+      height: 32px;
+      background: #10B981;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 900;
+      border: 3px solid #123C32;
+    }
+
+    .teacher-name-title {
+      font-size: 1.95rem;
+      font-weight: 800;
+      color: #FAF7F2;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .teacher-id-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(212, 164, 55, 0.2);
+      border: 1px solid rgba(212, 164, 55, 0.4);
+      color: #F8D98C;
+      font-size: 0.8rem;
+      font-weight: 800;
+      border-radius: 8px;
+      margin-left: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .teacher-meta-sub {
+      font-size: 0.98rem;
+      color: rgba(250, 247, 242, 0.88);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .teacher-quick-stats-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .teacher-stat-pill {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FAF7F2;
+    }
+
+    .teacher-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .btn-hero-action {
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 180ms ease;
+    }
+
+    .btn-hero-primary {
+      background: var(--gold);
+      color: #0A241E;
+      box-shadow: 0 4px 16px rgba(212, 164, 55, 0.3);
+    }
+
+    .btn-hero-primary:hover {
+      background: #E2B245;
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FAF7F2;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* 4-Stat Bento Bar */
+    .teacher-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 32px;
+    }
+
+    .metric-bento-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .metric-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--green-tint);
+      color: var(--green-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .metric-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .metric-info p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Section Title */
+    .section-headline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .section-headline-row h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.025em;
+    }
+
+    .section-headline-row p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE STUDENT CARDS ("techar chak student profile and he have istudent card in profile proaprly")
+       ========================================================================== */
+    .student-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-bottom: 34px;
+    }
+
+    .student-mgmt-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 28px 24px;
+      border: 1.5px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 220ms ease;
+      position: relative;
+    }
+
+    .student-mgmt-card:hover {
+      border-color: rgba(18, 60, 50, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(18, 60, 50, 0.08);
+    }
+
+    .student-mgmt-card.featured-student {
+      border: 2px solid var(--gold);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
+    }
+
+    .student-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .student-card-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+    }
+
+    .student-card-name {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .student-id-sub {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #059669;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 2px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .student-meta-line {
+      font-size: 0.85rem;
+      color: #64748B;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Next Session Box inside Student Card */
+    .session-info-box {
+      background: #FAF7F2;
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(18, 60, 50, 0.06);
+      margin-bottom: 16px;
+    }
+
+    .session-time-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .session-time-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--green-primary);
+    }
+
+    .session-status-active {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #10B981;
+      background: #FFFFFF;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .session-topic-text {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    /* Wellbeing Mood Pill */
+    .wellbeing-mood-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #475569;
+      padding: 8px 12px;
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 1px solid #E2E8F0;
+      margin-bottom: 18px;
+    }
+
+    .mood-score-green {
+      color: #059669;
+      font-weight: 800;
+    }
+
+    /* Actions on Student Card */
+    .student-card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-check-student-profile {
+      width: 100%;
+      padding: 12px 18px;
+      background: var(--green-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 180ms ease;
+      box-shadow: 0 4px 14px rgba(18, 60, 50, 0.18);
+    }
+
+    .btn-check-student-profile:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(18, 60, 50, 0.28);
+    }
+
+    .btn-log-notes {
+      width: 100%;
+      padding: 10px 16px;
+      background: #FFFFFF;
+      color: var(--green-primary);
+      border: 1.5px solid var(--border-light);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .btn-log-notes:hover {
+      background: #FAF7F2;
+      border-color: var(--green-primary);
+    }
+
+    /* + Add Student Card */
+    .add-student-card-box {
+      border: 2px dashed #CBD5E1;
+      border-radius: 24px;
+      background: #FAF7F2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 200ms ease;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .add-student-card-box:hover {
+      border-color: var(--green-primary);
+      background: rgba(18, 60, 50, 0.04);
+      transform: translateY(-3px);
+    }
+
+    .add-student-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: var(--green-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      box-shadow: 0 6px 16px rgba(18, 60, 50, 0.08);
+      border: 1px solid rgba(18, 60, 50, 0.1);
+    }
+
+    @media (max-width: 1024px) {
+      .student-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .teacher-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .teacher-hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .teacher-hero-right {
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .student-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .teacher-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Student Profile -->
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Student Sign In</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <h4 class="promo-title">100% Background Check</h4>
+        <p class="promo-sub">Degrees, ID card and marksheet scans verified within 24h.</p>
+        <a href="teacher-setup.html" class="promo-btn">Edit Verification →</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1>Educator Workspace &amp; Student Management</h1>
+          <p>Monitor your enrolled home students, view upcoming sessions, and inspect student progress cards.</p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Setup Tutor ID Button in Top Right Corner -->
+          <a href="teacher-setup.html" class="header-tutor-btn" title="Setup or Edit Tutor ID Credentials">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+            <span>🪪 Setup Tutor ID</span>
+          </a>
+
+          <!-- Student Profile Avatar Link -->
+          <a href="profile.html">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="Student Profile" title="Switch to Student View (Aryan Sharma)">
+          </a>
+        </div>
+      </header>
+
+      <!-- TEACHER HERO BANNER (Distinct Educator Identity) -->
+      <section class="teacher-hero-banner">
+        <div class="teacher-hero-left">
+          <div class="teacher-large-avatar-wrap">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" class="teacher-large-avatar" alt="Dr. Rajeshwar Sharma">
+            <div class="teacher-verified-badge-icon" title="100% ID, Degree & Background Verified">✓</div>
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">
+              <h2 class="teacher-name-title">Dr. Rajeshwar Sharma</h2>
+              <span class="teacher-id-pill">🪪 ID: HG-TEACH-8492</span>
+            </div>
+            <p class="teacher-meta-sub">
+              Physics Mentor (JEE Main, Advanced &amp; NEET) • 📍 Malviya Nagar, Jaipur
+            </p>
+            <div class="teacher-quick-stats-row">
+              <span class="teacher-stat-pill">★ #1 Physics Guru in Jaipur</span>
+              <span class="teacher-stat-pill">Ph.D. in Applied Physics</span>
+              <span class="teacher-stat-pill">Rate: ₹750/hour</span>
+              <span class="teacher-stat-pill">12 Yrs Home Tutoring Exp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="teacher-hero-right">
+          <a href="teacher-setup.html" class="btn-hero-action btn-hero-primary">
+            <span>✏️ Edit Setup &amp; Documents</span>
+          </a>
+          <a href="tutor-profile.html?id=tutor-1" class="btn-hero-action btn-hero-secondary">
+            <span>👁️ View Public Profile →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 4-METRIC BENTO BAR -->
+      <section class="teacher-metrics-grid">
+        <div class="metric-bento-card">
+          <div class="metric-icon-box">👨‍🎓</div>
+          <div class="metric-info">
+            <h3>4 Active</h3>
+            <p>Enrolled Home Students</p>
+          </div>
+        </div>
+
+        <div class="metric-bento-card">
+          <div class="metric-icon-box">📚</div>
+          <div class="metric-info">
+            <h3>48 Lessons</h3>
+            <p>Completed This Term</p>
+          </div>
+        </div>
+
+        <div class="metric-bento-card">
+          <div class="metric-icon-box">⏱️</div>
+          <div class="metric-info">
+            <h3>99%</h3>
+            <p>Lesson Regularity Score</p>
+          </div>
+        </div>
+
+        <div class="metric-bento-card">
+          <div class="metric-icon-box">🛡️</div>
+          <div class="metric-info">
+            <h3>92 / 100</h3>
+            <p>Student Calm &amp; Focus Index</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: ENROLLED STUDENT CARDS ("techar chak student profile and he have istudent card in profile proaprly") -->
+      <div class="section-headline-row">
+        <div>
+          <h2>My Enrolled Students &amp; Home Learning Slots</h2>
+          <p>Check each student’s academic profile, review upcoming lesson topics, and inspect wellbeing ratings.</p>
+        </div>
+        <span style="font-size:0.85rem; font-weight:800; color:var(--green-primary); background:#FFFFFF; padding:6px 14px; border-radius:9999px; border:1px solid #E2E8F0;">
+          Showing 3 Enrolled Students in Jaipur
+        </span>
+      </div>
+
+      <!-- THE STUDENT CARDS GRID -->
+      <div class="student-cards-grid">
+        
+        <!-- ================= STUDENT CARD 1: ARYAN SHARMA ================= -->
+        <article class="student-mgmt-card featured-student">
+          <div>
+            <div class="student-card-top">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="student-card-avatar" alt="Aryan Sharma">
+              <div>
+                <h3 class="student-card-name">Aryan Sharma</h3>
+                <span class="student-id-sub">Student ID: HG-STU-1082</span>
+                <p class="student-meta-line">Class 12 (CBSE + JEE Main) • Malviya Nagar</p>
+              </div>
+            </div>
+
+            <!-- Upcoming Session -->
+            <div class="session-info-box">
+              <div class="session-time-row">
+                <span class="session-time-label">📅 Tomorrow at 5:30 PM</span>
+                <span class="session-status-active">Home Visit</span>
+              </div>
+              <p class="session-topic-text">
+                <strong>Topic:</strong> Wave Optics Numerical &amp; Young's Double Slit Interference
+              </p>
+              <p style="font-size:0.75rem; color:#64748B; margin-top:4px;">
+                Parent Contact: Suman Joshi (+91 98765 43210)
+              </p>
+            </div>
+
+            <!-- Progress & Wellbeing -->
+            <div class="wellbeing-mood-indicator">
+              <span>Student Mental State:</span>
+              <span class="mood-score-green">92/100 (Calm &amp; Focused 😌)</span>
+            </div>
+          </div>
+
+          <!-- Action on Student Card: Checks Student Profile -->
+          <div class="student-card-actions">
+            <a href="profile.html" class="btn-check-student-profile" title="Inspect Aryan Sharma's Student Profile Sanctuary">
+              <span>Inspect Student Profile →</span>
+            </a>
+            <button type="button" class="btn-log-notes" onclick="alert('Session Notes logged for Aryan Sharma. Topic: Wave Optics.')">
+              📝 Log Lesson Notes &amp; Scores
+            </button>
+          </div>
+        </article>
+
+        <!-- ================= STUDENT CARD 2: PRIYA JOSHI ================= -->
+        <article class="student-mgmt-card">
+          <div>
+            <div class="student-card-top">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" class="student-card-avatar" alt="Priya Joshi">
+              <div>
+                <h3 class="student-card-name">Priya Joshi</h3>
+                <span class="student-id-sub">Student ID: HG-STU-2041</span>
+                <p class="student-meta-line">NEET-UG Dropper • Tonk Road, Jaipur</p>
+              </div>
+            </div>
+
+            <!-- Upcoming Session -->
+            <div class="session-info-box">
+              <div class="session-time-row">
+                <span class="session-time-label">📅 Friday at 4:00 PM</span>
+                <span class="session-status-active">Home Visit</span>
+              </div>
+              <p class="session-topic-text">
+                <strong>Topic:</strong> Ray Optics, Lens Maker's Formula &amp; NCERT Numericals
+              </p>
+              <p style="font-size:0.75rem; color:#64748B; margin-top:4px;">
+                Parent Contact: Rakesh Joshi (+91 98290 11223)
+              </p>
+            </div>
+
+            <!-- Progress & Wellbeing -->
+            <div class="wellbeing-mood-indicator">
+              <span>Student Mental State:</span>
+              <span class="mood-score-green">88/100 (Normal &amp; Relaxed)</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="student-card-actions">
+            <a href="profile.html" class="btn-check-student-profile">
+              <span>Inspect Student Profile →</span>
+            </a>
+            <button type="button" class="btn-log-notes" onclick="alert('Lesson notes logged for Priya Joshi.')">
+              📝 Log Lesson Notes &amp; Scores
+            </button>
+          </div>
+        </article>
+
+        <!-- ================= STUDENT CARD 3: ROHAN AGARWAL ================= -->
+        <article class="student-mgmt-card">
+          <div>
+            <div class="student-card-top">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="student-card-avatar" alt="Rohan Agarwal">
+              <div>
+                <h3 class="student-card-name">Rohan Agarwal</h3>
+                <span class="student-id-sub">Student ID: HG-STU-3190</span>
+                <p class="student-meta-line">Class 11 Science • Mansarovar, Jaipur</p>
+              </div>
+            </div>
+
+            <!-- Upcoming Session -->
+            <div class="session-info-box">
+              <div class="session-time-row">
+                <span class="session-time-label">📅 Saturday at 11:00 AM</span>
+                <span class="session-status-active">Home Visit</span>
+              </div>
+              <p class="session-topic-text">
+                <strong>Topic:</strong> Rotational Dynamics &amp; Moment of Inertia Calculations
+              </p>
+              <p style="font-size:0.75rem; color:#64748B; margin-top:4px;">
+                Parent Contact: Sunita Agarwal (+91 94140 77889)
+              </p>
+            </div>
+
+            <!-- Progress & Wellbeing -->
+            <div class="wellbeing-mood-indicator">
+              <span>Student Mental State:</span>
+              <span class="mood-score-green">95/100 (Thriving &amp; Confident)</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="student-card-actions">
+            <a href="profile.html" class="btn-check-student-profile">
+              <span>Inspect Student Profile →</span>
+            </a>
+            <button type="button" class="btn-log-notes" onclick="alert('Lesson notes logged for Rohan Agarwal.')">
+              📝 Log Lesson Notes &amp; Scores
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="shared-data.js"></script>
+</body>
+</html>

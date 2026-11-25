@@ -1,0 +1,109 @@
+{
+  "students": {
+    "student_aryan": {
+      "id": "HG-STU-1082",
+      "name": "Aryan Sharma",
+      "email": "aryan.sharma@gmail.com",
+      "grade": "Class 12 (CBSE + JEE Main Aspirant)",
+      "city": "Jaipur",
+      "locality": "Malviya Nagar",
+      "parentName": "Suman Joshi",
+      "parentPhone": "+91 98765 43210",
+      "calmIndex": 92,
+      "lessonHoursDone": 48,
+      "regularity": 99,
+      "hiredTutorId": "tutor_rajeshwar",
+      "nextSession": {
+        "time": "Tomorrow at 5:30 PM",
+        "topic": "Wave Optics Numerical & Young's Double Slit Interference",
+        "mode": "Home Visit"
+      }
+    },
+    "student_priya": {
+      "id": "HG-STU-2041",
+      "name": "Priya Joshi",
+      "email": "priya.joshi@gmail.com",
+      "grade": "NEET-UG Dropper",
+      "city": "Jaipur",
+      "locality": "Tonk Road",
+      "parentName": "Rakesh Joshi",
+      "parentPhone": "+91 98290 11223",
+      "calmIndex": 88,
+      "nextSession": {
+        "time": "Friday at 4:00 PM",
+        "topic": "Ray Optics & Lens Maker's Formula",
+        "mode": "Home Visit"
+      }
+    },
+    "student_rohan": {
+      "id": "HG-STU-3190",
+      "name": "Rohan Agarwal",
+      "email": "rohan.agarwal@gmail.com",
+      "grade": "Class 11 Science",
+      "city": "Jaipur",
+      "locality": "Mansarovar",
+      "parentName": "Sunita Agarwal",
+      "parentPhone": "+91 94140 77889",
+      "calmIndex": 95,
+      "nextSession": {
+        "time": "Saturday at 11:00 AM",
+        "topic": "Rotational Dynamics",
+        "mode": "Home Visit"
+      }
+    }
+  },
+  "educators": {
+    "tutor_rajeshwar": {
+      "id": "HG-TEACH-8492",
+      "name": "Dr. Rajeshwar Sharma",
+      "badgeTitle": "#1 Physics Guru in Jaipur",
+      "phone": "+91 98290 87654",
+      "email": "dr.rajeshwar.sharma@gmail.com",
+      "city": "Jaipur",
+      "areas": ["Malviya Nagar", "Mansarovar", "Tonk Road", "Vaishali Nagar"],
+      "subjects": ["Physics", "JEE Main & Advanced", "NEET Physics"],
+      "curriculum": "CBSE Board + JEE Main & Advanced",
+      "hourlyRate": 750,
+      "monthlyPackage": 8000,
+      "experienceYears": 12,
+      "verified": true,
+      "degrees": [
+        "Ph.D. in Applied Physics (University of Rajasthan)",
+        "B.Sc. & M.Sc. Gold Medalist",
+        "Police Background Verification Cleared"
+      ],
+      "metrics": {
+        "studentScore": 4.95,
+        "parentScore": 4.90,
+        "attendance": 99,
+        "calmFocusIndex": 92
+      }
+    },
+    "tutor_pooja": {
+      "id": "HG-TEACH-5521",
+      "name": "Pooja Rathore (M.Sc, B.Ed)",
+      "badgeTitle": "#2 Top Educator in Jaipur",
+      "phone": "+91 98291 22334",
+      "email": "pooja.rathore@gmail.com",
+      "city": "Jaipur",
+      "areas": ["Raja Park", "Jagatpura", "Tonk Road"],
+      "subjects": ["Biology", "NEET Botany", "Human Physiology"],
+      "hourlyRate": 600,
+      "experienceYears": 7,
+      "verified": true
+    }
+  },
+  "bookings": {
+    "booking_001": {
+      "studentId": "HG-STU-1082",
+      "tutorId": "HG-TEACH-8492",
+      "scheduledDate": "2026-11-21",
+      "scheduledTime": "5:30 PM",
+      "subject": "Physics",
+      "topic": "Wave Optics",
+      "status": "Confirmed",
+      "location": "Malviya Nagar, Jaipur (Student's Study Desk)"
+    }
+  }
+}
+

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login &amp; Sign Up | HomeGuru Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    /* ==========================================================================
+       HOMEGURU MINIMALIST FULL-SPACE AUTH
+       Edge-to-edge, calm cream & forest green, authentic imagery, zero 3D clutter
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FAF7F2;
+      color: #123C32;
+      overflow-x: hidden;
+    }
+
+    /* Full-Screen Split Workspace (Uses 100% of Viewport Space) */
+    .auth-viewport {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      min-height: 100vh;
+      width: 100vw;
+    }
+
+    /* ==========================================================================
+       LEFT PANEL: Calm Editorial Photography & Wellbeing Sanctuary
+       ========================================================================== */
+    .auth-image-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(18, 60, 50, 0.45) 0%, rgba(10, 36, 30, 0.88) 100%),
+                  url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 54px 60px;
+      color: #FAF7F2;
+      overflow: hidden;
+    }
+
+    /* Ambient Warm Glow */
+    .auth-image-panel::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 164, 55, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Top Left Nav / Tag */
+    .auth-image-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .auth-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FAF7F2;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 200ms ease;
+    }
+
+    .auth-back-link:hover {
+      background: rgba(255, 255, 255, 0.28);
+      transform: translateX(-3px);
+    }
+
+    .auth-sanctuary-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      background: rgba(212, 164, 55, 0.2);
+      border: 1px solid rgba(212, 164, 55, 0.4);
+      color: #F8D98C;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Bottom Story Content */
+    .auth-image-footer {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .auth-headline {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.85rem;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: #FAF7F2;
+    }
+
+    .auth-headline em {
+      font-style: italic;
+      color: #F8D98C;
+    }
+
+    .auth-subline {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(250, 247, 242, 0.85);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    /* Minimalist Glass Stats Bar */
+    .auth-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px 24px;
+      background: rgba(10, 36, 30, 0.55);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 24px;
+    }
+
+    .auth-stat-item h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #F8D98C;
+      margin-bottom: 2px;
+    }
+
+    .auth-stat-item p {
+      font-size: 0.76rem;
+      color: rgba(250, 247, 242, 0.75);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Parent Quote Snippet */
+    .auth-quote-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-left: 3px solid #D4A437;
+    }
+
+    .auth-quote-card p {
+      font-size: 0.84rem;
+      font-style: italic;
+      color: rgba(250, 247, 242, 0.9);
+      line-height: 1.45;
+    }
+
+    .auth-quote-card span {
+      font-style: normal;
+      font-weight: 700;
+      color: #F8D98C;
+      display: block;
+      margin-top: 4px;
+      font-size: 0.76rem;
+    }
+
+    /* ==========================================================================
+       RIGHT PANEL: Clean Minimalist Calm Authentication
+       ========================================================================== */
+    .auth-form-panel {
+      background-color: #FAF7F2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 70px;
+      overflow-y: auto;
+      min-height: 100vh;
+    }
+
+    .auth-form-content {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Brand Logo Row */
+    .auth-brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 28px;
+    }
+
+    .auth-brand-logo .logo-mark {
+      width: 38px;
+      height: 38px;
+    }
+
+    .auth-brand-logo .logo-brand-text {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #123C32;
+      letter-spacing: -0.03em;
+    }
+
+    /* Minimalist Tab Switcher */
+    .auth-tabs {
+      display: flex;
+      background: #EFEBE1;
+      border-radius: 14px;
+      padding: 4px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(18, 60, 50, 0.08);
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: 11px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #556B63;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .auth-tab.active {
+      background: #FFFFFF;
+      color: #123C32;
+      box-shadow: 0 4px 14px rgba(18, 60, 50, 0.08);
+    }
+
+    /* Title & Greeting */
+    .auth-greeting-header {
+      margin-bottom: 24px;
+    }
+
+    .auth-greeting-header h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #123C32;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .auth-greeting-header p {
+      font-size: 0.9rem;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .auth-greeting-header p a {
+      color: #D4A437;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .auth-greeting-header p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Inputs */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #123C32;
+      outline: none;
+      transition: all 180ms ease;
+    }
+
+    .input-field:focus {
+      border-color: #123C32;
+      box-shadow: 0 0 0 4px rgba(18, 60, 50, 0.08);
+      background: #FFFFFF;
+    }
+
+    .input-icon-btn {
+      position: absolute;
+      right: 14px;
+      background: none;
+      border: none;
+      color: #94A3B8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .input-icon-btn:hover {
+      color: #123C32;
+    }
+
+    /* Extra row: Remember & Forgot */
+    .auth-extra-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 14px 0 20px 0;
+      font-size: 0.82rem;
+    }
+
+    .auth-remember-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #334155;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .auth-remember-label input {
+      accent-color: #123C32;
+      width: 16px;
+      height: 16px;
+    }
+
+    .auth-forgot-link {
+      color: #64748B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .auth-forgot-link:hover {
+      color: #123C32;
+      text-decoration: underline;
+    }
+
+    /* Submit Button */
+    .auth-submit-btn {
+      width: 100%;
+      padding: 14px 22px;
+      background: #123C32;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 180ms ease;
+      box-shadow: 0 6px 20px rgba(18, 60, 50, 0.22);
+    }
+
+    .auth-submit-btn:hover {
+      background: #1B5648;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(18, 60, 50, 0.32);
+    }
+
+    /* Primary Google Auth CTA */
+    .btn-google-auth {
+      width: 100%;
+      padding: 13px 20px;
+      background: #FFFFFF;
+      color: #123C32;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 180ms ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      margin-top: 14px;
+    }
+
+    .btn-google-auth:hover {
+      background: #FAF7F2;
+      border-color: #123C32;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(18, 60, 50, 0.12);
+    }
+
+    /* 1-Click Demo Pill */
+    .demo-login-pill {
+      margin-top: 12px;
+      width: 100%;
+      padding: 11px 16px;
+      background: rgba(212, 164, 55, 0.12);
+      border: 1.5px dashed #D4A437;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #996B0A;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 180ms ease;
+    }
+
+    .demo-login-pill:hover {
+      background: #D4A437;
+      color: #0A241E;
+      border-style: solid;
+      transform: translateY(-1px);
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 22px 0 18px 0;
+      color: #94A3B8;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .auth-divider span {
+      padding: 0 14px;
+    }
+
+    /* Social Buttons */
+    .social-btn-group {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .social-btn {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 180ms ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .social-btn:hover {
+      background: #F8FAFC;
+      border-color: #123C32;
+      transform: translateY(-1px);
+    }
+
+    /* Legal / Wellbeing Guarantee */
+    .auth-legal-footer {
+      font-size: 0.74rem;
+      color: #94A3B8;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .auth-legal-footer a {
+      color: #475569;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       RESPONSIVENESS (Seamless Mobile Experience)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .auth-viewport {
+        grid-template-columns: 1fr;
+      }
+      .auth-image-panel {
+        min-height: 380px;
+        padding: 36px 28px;
+      }
+      .auth-headline {
+        font-size: 2.1rem;
+      }
+      .auth-stats-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .auth-form-panel {
+        padding: 40px 24px;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Full-Screen Split Workspace (Uses all screen space) -->
+  <div class="auth-viewport">
+
+    <!-- LEFT PANEL: Authentic Photography, Calm Aesthetic & Student Sanctuary -->
+    <aside class="auth-image-panel">
+      
+      <!-- Top Bar -->
+      <div class="auth-image-header">
+        <a href="index.html" class="auth-back-link">
+          <span>← Back to Dashboard</span>
+        </a>
+        <div class="auth-sanctuary-pill">
+          <span>✨ Student Sanctuary</span>
+        </div>
+      </div>
+
+      <!-- Bottom Editorial Story & Verified Parent Proof -->
+      <div class="auth-image-footer">
+        <h2 class="auth-headline">
+          Study close to <em>family</em>.<br>
+          Learn with <em>verified mentors</em>.
+        </h2>
+        <p class="auth-subline">
+          No relocation anxiety. No crowded coaching factories. Connect 1-on-1 with Jaipur’s highest-rated home educators at your own study desk.
+        </p>
+
+        <!-- Minimalist 3-Stat Glass Bar -->
+        <div class="auth-stats-bar">
+          <div class="auth-stat-item">
+            <h4>98.4%</h4>
+            <p>Parent Trust Rating</p>
+          </div>
+          <div class="auth-stat-item">
+            <h4>10,000+</h4>
+            <p>Home Classes Done</p>
+          </div>
+          <div class="auth-stat-item">
+            <h4>Zero</h4>
+            <p>Relocation Stress</p>
+          </div>
+        </div>
+
+        <!-- Verified Parent Testimonial Quote -->
+        <div class="auth-quote-card">
+          <p>
+            "Aryan’s exam stress vanished once we brought Jaipur's top physics educator to our living room. Truly empowering."
+            <span>— Suman Joshi, Parent • Malviya Nagar, Jaipur</span>
+          </p>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT PANEL: Calm, Minimalist & Spacious Form -->
+    <main class="auth-form-panel">
+      <div class="auth-form-content">
+        
+        <!-- Brand Logo Row -->
+        <a href="index.html" class="auth-brand-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+              <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+            </svg>
+          </div>
+          <span class="logo-brand-text">HomeGuru</span>
+        </a>
+
+        <!-- Minimalist Tab Switcher -->
+        <div class="auth-tabs">
+          <button id="tabLogin" class="auth-tab active" onclick="switchAuthTab('login')">
+            Student Sign In
+          </button>
+          <button id="tabSignup" class="auth-tab" onclick="switchAuthTab('signup')">
+            Create Free Account
+          </button>
+        </div>
+
+        <!-- Title & Subtitle -->
+        <div class="auth-greeting-header">
+          <h1 id="authTitle">Welcome back, Student</h1>
+          <p id="authSubtitle">
+            New to HomeGuru? <a href="#" onclick="switchAuthTab('signup'); return false;">Sign Up for Free</a>
+          </p>
+        </div>
+
+        <!-- AUTH FORM -->
+        <form id="studentAuthForm" onsubmit="handleAuthSubmit(event)">
+          
+          <!-- Field: Full Name (Visible on Sign Up) -->
+          <div class="form-group" id="groupFullName" style="display:none;">
+            <label class="form-label">Student Full Name</label>
+            <div class="input-wrapper">
+              <input type="text" id="fieldName" class="input-field" placeholder="e.g. Aryan Sharma">
+            </div>
+          </div>
+
+          <!-- Field: Identifier -->
+          <div class="form-group">
+            <label class="form-label" id="labelIdentifier">Email or Student WhatsApp No.</label>
+            <div class="input-wrapper">
+              <input type="text" id="fieldIdentifier" class="input-field" placeholder="e.g. aryan.sharma@gmail.com" required value="aryan.sharma@gmail.com">
+            </div>
+          </div>
+
+          <!-- Field: Grade & City (Visible on Sign Up) -->
+          <div class="form-group" id="groupGradeCity" style="display:none;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
+              <div>
+                <label class="form-label">Class / Stream</label>
+                <select id="fieldGrade" class="input-field">
+                  <option value="Class 12 - CBSE + JEE">Class 12 (JEE/CBSE)</option>
+                  <option value="Class 11 - Science">Class 11 (Science)</option>
+                  <option value="Class 10 - Board">Class 10 (Board)</option>
+                  <option value="Class 9 - Foundations">Class 9 (Foundations)</option>
+                  <option value="NEET Medical Dropper">NEET Medical Dropper</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">City</label>
+                <select id="fieldCity" class="input-field">
+                  <option value="Jaipur" selected>Jaipur</option>
+                  <option value="Delhi NCR">Delhi NCR</option>
+                  <option value="Kota">Kota (Homes)</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Bengaluru">Bengaluru</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Field: Password -->
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="fieldPassword" class="input-field" placeholder="Enter your password" required value="••••••••">
+              <button type="button" class="input-icon-btn" onclick="togglePasswordVisibility()" title="Show/Hide Password">
+                <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Extra Options -->
+          <div class="auth-extra-row">
+            <label class="auth-remember-label">
+              <input type="checkbox" id="rememberMe" checked>
+              <span>Remember this device</span>
+            </label>
+            <a href="#" onclick="alert('Password reset link sent to your registered WhatsApp.'); return false;" class="auth-forgot-link">
+              Forgot password?
+            </a>
+          </div>
+
+          <!-- Main CTA Submit Button -->
+          <button type="submit" class="auth-submit-btn" id="btnSubmit">
+            <span id="btnSubmitText">Sign In to Student Portal →</span>
+          </button>
+
+          <!-- Prominent 1-Click Google Auth CTA (Login & Sign Up) -->
+          <button type="button" class="btn-google-auth" onclick="handleGoogleAuth()" id="btnGoogleAuth" title="1-Click Login or Sign Up with your Google Account">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+            <span id="googleBtnLabel">Continue with Google (Instant Login &amp; Sign Up)</span>
+          </button>
+
+          <!-- 1-Click Demo Fill Pills for Testing Roles -->
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button type="button" class="demo-login-pill" onclick="demoLoginAryan()">
+              Demo Login: Student (Aryan Sharma &bull; Class 12)
+            </button>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+              <button type="button" class="demo-login-pill" style="border-color:#2563EB; color:#1D4ED8; background:rgba(37,99,235,0.06);" onclick="demoLoginTeacher()">
+                Teacher Portal Demo
+              </button>
+              <button type="button" class="demo-login-pill" style="border-color:#D4A437; color:#B45309; background:rgba(212,164,55,0.08);" onclick="demoLoginParent()">
+                Family Portal Demo
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>or continue with</span>
+        </div>
+
+        <!-- Minimalist Social Auth (Google, Apple, Phone OTP) -->
+        <div class="social-btn-group">
+          <!-- Google -->
+          <button type="button" class="social-btn" onclick="handleGoogleAuth()" title="Sign In with Google">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.37 7.33 24 12 24z"/>
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.94 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.63 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+            </svg>
+          </button>
+
+          <!-- Apple -->
+          <button type="button" class="social-btn" onclick="socialLogin('Apple')" title="Sign In with Apple">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#123C32">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.87.94-2.97-.93.04-2.09.63-2.73 1.39-.56.65-1.06 1.76-.93 2.83 1.04.08 2.11-.53 2.72-1.25z"/>
+            </svg>
+          </button>
+
+          <!-- Mobile OTP -->
+          <button type="button" class="social-btn" onclick="socialLogin('WhatsApp OTP')" title="Instant WhatsApp OTP" style="gap:6px; font-size:0.8rem; font-weight:700; color:#123C32;">
+            <span>SMS OTP</span>
+          </button>
+        </div>
+
+        <!-- Firebase Status Pill & Quick Setup Link -->
+        <div style="text-align: center; margin-top: 10px;">
+          <div id="firebaseStatusPill" style="display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; color:#059669; background:rgba(16,185,129,0.1); padding:4px 12px; border-radius:9999px; border:1px solid rgba(16,185,129,0.2);">
+            <span>🔥 Firebase Project: homeguru-5b281</span>
+          </div>
+          <br>
+          <button type="button" onclick="openFirebaseConfigModal()" style="background:none; border:none; font-size:0.75rem; color:#64748B; text-decoration:underline; cursor:pointer; margin-top:6px;">
+            ⚙️ Paste Firebase Web API Key
+          </button>
+        </div>
+
+        <!-- Educator Setup Link -->
+        <div style="margin: 18px 0; padding: 12px; background: rgba(18,60,50,0.04); border-radius: 12px; text-align: center;">
+          <span style="font-size: 0.8rem; color: #475569;">Are you an educator? </span>
+          <a href="teacher-setup.html" style="font-size: 0.82rem; font-weight: 800; color: #123C32; text-decoration: none;">
+            Join &amp; Verify Profile as Teacher →
+          </a>
+        </div>
+
+        <!-- Wellbeing Guarantee -->
+        <p class="auth-legal-footer">
+          Protected by HomeGuru's <a href="wellbeing.html">Student Wellbeing Shield</a> and <a href="rankings.html">Anti-Burnout Charter</a>.
+        </p>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Firebase Web SDK Compatibility -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+
+  <script src="shared-data.js"></script>
+  <script>
+    let currentAuthMode = 'login';
+
+    function switchAuthTab(mode) {
+      currentAuthMode = mode;
+      const tabLogin = document.getElementById('tabLogin');
+      const tabSignup = document.getElementById('tabSignup');
+      const groupFullName = document.getElementById('groupFullName');
+      const groupGradeCity = document.getElementById('groupGradeCity');
+      const authTitle = document.getElementById('authTitle');
+      const authSubtitle = document.getElementById('authSubtitle');
+      const btnSubmitText = document.getElementById('btnSubmitText');
+
+      if (mode === 'signup') {
+        tabLogin.classList.remove('active');
+        tabSignup.classList.add('active');
+        groupFullName.style.display = 'block';
+        groupGradeCity.style.display = 'block';
+        authTitle.innerText = 'Join HomeGuru as Student';
+        authSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchAuthTab(\'login\'); return false;">Sign In</a>';
+        btnSubmitText.innerText = 'Create Free Student Account →';
+        document.getElementById('fieldIdentifier').placeholder = 'Parent or Student WhatsApp / Email';
+        const googleLabel = document.getElementById('googleBtnLabel');
+        if (googleLabel) googleLabel.innerText = 'Sign Up with Google (1-Click Student Account)';
+      } else {
+        tabLogin.classList.add('active');
+        tabSignup.classList.remove('active');
+        groupFullName.style.display = 'none';
+        groupGradeCity.style.display = 'none';
+        authTitle.innerText = 'Welcome back, Student';
+        authSubtitle.innerHTML = 'New to HomeGuru? <a href="#" onclick="switchAuthTab(\'signup\'); return false;">Sign Up for Free</a>';
+        btnSubmitText.innerText = 'Sign In to Student Portal →';
+        document.getElementById('fieldIdentifier').placeholder = 'e.g. aryan.sharma@gmail.com';
+        const googleLabel = document.getElementById('googleBtnLabel');
+        if (googleLabel) googleLabel.innerText = 'Continue with Google (Instant Login)';
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const field = document.getElementById('fieldPassword');
+      const icon = document.getElementById('eyeIcon');
+      if (field.type === 'password') {
+        field.type = 'text';
+        icon.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        `;
+      } else {
+        field.type = 'password';
+        icon.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        `;
+      }
+    }
+
+    function demoLoginAryan() {
+      switchAuthTab('login');
+      document.getElementById('fieldIdentifier').value = 'aryan.sharma@gmail.com';
+      document.getElementById('fieldPassword').value = 'HomeGuru2026';
+      
+      const btn = document.getElementById('btnSubmit');
+      btn.style.transform = 'scale(0.98)';
+      btn.innerHTML = '<span>Entering Student Sanctuary...</span>';
+      
+      setTimeout(() => {
+        if (window.HomeGuruFirebase) {
+          window.HomeGuruFirebase.switchActiveRole('student');
+        }
+        window.location.href = 'index.html';
+      }, 400);
+    }
+
+    function demoLoginTeacher() {
+      switchAuthTab('login');
+      document.getElementById('fieldIdentifier').value = 'dr.rajeshwar.sharma@gmail.com';
+      document.getElementById('fieldPassword').value = 'HomeGuru2026';
+      
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = '<span>Entering Teacher Portal...</span>';
+      
+      setTimeout(() => {
+        if (window.HomeGuruFirebase) {
+          window.HomeGuruFirebase.switchActiveRole('teacher');
+        }
+        window.location.href = 'teacher-portal.html';
+      }, 400);
+    }
+
+    function demoLoginParent() {
+      switchAuthTab('login');
+      document.getElementById('fieldIdentifier').value = 'suman.joshi@gmail.com';
+      document.getElementById('fieldPassword').value = 'HomeGuru2026';
+      
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = '<span>Entering Family Portal...</span>';
+      
+      setTimeout(() => {
+        if (window.HomeGuruFirebase) {
+          window.HomeGuruFirebase.switchActiveRole('parent');
+        }
+        window.location.href = 'parent-portal.html';
+      }, 400);
+    }
+
+    async function handleAuthSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = '<span>Authenticating with Firebase...</span>';
+
+      const email = document.getElementById('fieldIdentifier').value || 'aryan.sharma@gmail.com';
+      const password = document.getElementById('fieldPassword').value || 'HomeGuru2026';
+      const fullName = document.getElementById('fieldName')?.value || 'Aryan Sharma';
+      const grade = document.getElementById('fieldGrade')?.value || 'Class 12';
+      const city = document.getElementById('fieldCity')?.value || 'Jaipur';
+
+      try {
+        if (window.HomeGuruFirebase) {
+          if (currentAuthMode === 'signup') {
+            await window.HomeGuruFirebase.signUpStudent(email, password, fullName, grade, city);
+          } else {
+            await window.HomeGuruFirebase.signInStudent(email, password);
+          }
+        }
+      } catch (err) {
+        console.warn('Firebase login notice:', err);
+      }
+
+      setTimeout(() => {
+        window.location.href = 'profile.html';
+      }, 500);
+    }
+
+    async function handleGoogleAuth() {
+      const label = document.getElementById('googleBtnLabel');
+      const originalText = label ? label.innerText : '';
+      if (label) label.innerText = 'Connecting to Google Account...';
+
+      try {
+        if (window.HomeGuruFirebase) {
+          const res = await window.HomeGuruFirebase.signInWithGoogle();
+          if (res && res.success) {
+            if (label) label.innerText = '✓ Welcome, ' + res.user.name;
+            setTimeout(() => {
+              window.location.href = 'profile.html';
+            }, 450);
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Google Auth Error:', err);
+        if (err.code === 'auth/operation-not-allowed') {
+          alert('Google Sign-In is not enabled yet in your Firebase Console!\n\nTo enable it:\n1. Open Firebase Console -> Project homeguru-5b281\n2. Click "Authentication" -> "Sign-in method"\n3. Click "Google" and toggle "Enable", then click Save.');
+        } else if (err.code === 'auth/unauthorized-domain') {
+          alert('Localhost is not authorized yet in Firebase Console!\n\nTo add it:\n1. Open Firebase Console -> Authentication -> Settings -> Authorized domains\n2. Add "localhost".');
+        } else if (err.code === 'auth/popup-closed-by-user') {
+          if (label) label.innerText = originalText;
+          return;
+        } else {
+          alert('Firebase Notice: ' + err.message + '\n\nContinuing in Demo Student mode...');
+          demoLoginAryan();
+          return;
+        }
+      }
+
+      setTimeout(() => {
+        demoLoginAryan();
+      }, 500);
+    }
+
+    async function socialLogin(provider) {
+      if (provider === 'Google') {
+        return handleGoogleAuth();
+      }
+
+      alert('Connecting securely to ' + provider + ' for HomeGuru Student Verification...');
+      setTimeout(() => {
+        demoLoginAryan();
+      }, 400);
+    }
+
+    // Modal helpers for pasting Firebase API key
+    function openFirebaseConfigModal() {
+      const modal = document.getElementById('firebaseConfigModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        const input = document.getElementById('modalApiKey');
+        if (input && window.HomeGuruFirebase) {
+          input.value = window.HomeGuruFirebase.config.apiKey.includes('DummyKey') ? '' : window.HomeGuruFirebase.config.apiKey;
+        }
+      }
+    }
+
+    function closeFirebaseModal() {
+      const modal = document.getElementById('firebaseConfigModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function saveFirebaseModalConfig() {
+      const apiKey = document.getElementById('modalApiKey').value.trim();
+      if (!apiKey) {
+        alert('Please enter your Firebase Web API Key.');
+        return;
+      }
+      if (window.HomeGuruFirebase) {
+        const updated = {
+          ...window.HomeGuruFirebase.config,
+          apiKey: apiKey
+        };
+        window.HomeGuruFirebase.updateConfig(updated);
+      }
+    }
+
+    // Check URL parameters for tab
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('mode') === 'signup') {
+        switchAuthTab('signup');
+      }
+
+      // Check Firebase readiness
+      if (window.HomeGuruFirebase && window.HomeGuruFirebase.isConfigured()) {
+        const pill = document.getElementById('firebaseStatusPill');
+        if (pill) {
+          pill.innerHTML = '<span>🔥 Live Firebase Connected: ' + window.HomeGuruFirebase.config.projectId + '</span>';
+        }
+      }
+    });
+  </script>
+
+  <!-- Modal for Instant Firebase Credentials Entry & Realtime Database Seed -->
+  <div id="firebaseConfigModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(10,36,30,0.6); backdrop-filter:blur(6px); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#FFFFFF; border-radius:24px; padding:32px; max-width:540px; width:92%; box-shadow:0 20px 50px rgba(0,0,0,0.3); border:1px solid #CBD5E1; max-height:90vh; overflow-y:auto;">
+      <h3 style="font-size:1.3rem; color:#123C32; margin-bottom:8px;">🔥 Firebase Configuration (homeguru-5b281)</h3>
+      <p style="font-size:0.88rem; color:#475569; margin-bottom:16px; line-height:1.5;">
+        Paste your Firebase Web App API Key from Firebase Console (⚙️ <strong>Project settings &gt; General &gt; Your apps</strong>) to activate live Google Authentication.
+      </p>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.85rem; font-weight:800; color:#123C32;">Web API Key (apiKey)</label>
+        <input type="text" id="modalApiKey" style="width:100%; padding:11px 14px; border:1.5px solid #CBD5E1; border-radius:10px; font-family:inherit; margin-top:5px; font-size:0.92rem;" placeholder="AIzaSy...">
+      </div>
+
+      <!-- Realtime Database Quick Setup Guide (Fix for ": null") -->
+      <div style="background:#FAF7F2; border:1.5px solid rgba(212,164,55,0.4); border-radius:14px; padding:16px; margin-bottom:18px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="font-size:1.1rem;">📦</span>
+          <strong style="font-size:0.92rem; color:#123C32;">Populate Realtime Database (Fix ": null")</strong>
+        </div>
+        <p style="font-size:0.82rem; color:#475569; line-height:1.45; margin-bottom:8px;">
+          Your database file <code>homeguru-initial-data.json</code> is prepared with all verified tutors, Aryan's student account, and rankings:
+        </p>
+        <ol style="font-size:0.82rem; color:#1E293B; padding-left:18px; line-height:1.6; font-weight:600;">
+          <li>In Firebase Console, click the <strong>three dots (⋮)</strong> next to your Realtime Database URL.</li>
+          <li>Click <strong>Import JSON</strong>.</li>
+          <li>Choose <code>D:\home-T\HOMEGURU\homeguru-initial-data.json</code> and confirm.</li>
+        </ol>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:10px;">
+        <button type="button" onclick="closeFirebaseModal()" style="padding:10px 18px; border-radius:10px; border:1.5px solid #CBD5E1; background:#FFFFFF; font-weight:700; cursor:pointer;">Cancel</button>
+        <button type="button" onclick="saveFirebaseModalConfig()" style="padding:10px 22px; border-radius:10px; border:none; background:#123C32; color:#FFFFFF; font-weight:800; cursor:pointer; box-shadow:0 4px 14px rgba(18,60,50,0.25);">Save &amp; Activate Google Auth</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

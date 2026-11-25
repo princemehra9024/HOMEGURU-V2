@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Portal | HomeGuru Verified Educator Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .teacher-stat-icon {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <!-- Menu Navigation -->
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Teacher Portal (Active) -->
+        <a href="teacher-portal.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Teacher Portal</span>
+        </a>
+
+        <a href="parent-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Family Portal</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <a href="admin-panel.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Admin Panel</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Sign In / Switch</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Promo Card -->
+      <div class="sidebar-promo-card">
+        <h4 class="promo-title">Educator Portal</h4>
+        <p class="promo-sub">Direct link to parents and students. Instant progress reporting.</p>
+        <a href="parent-portal.html" class="promo-btn">View Family View &rarr;</a>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+            <h1 style="font-size:1.75rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.03em;" id="teacherNameDisplay">
+              Dr. Rajeshwar Sharma
+            </h1>
+            <span class="badge-role-pill badge-role-teacher">Verified Educator</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; font-weight:500;">
+            Manage student progress reports, examinations, curriculum syllabi, and family communications.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Role Switcher -->
+          <div class="role-switcher-wrap" title="Switch active profile for testing">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">View As:</span>
+            <select class="role-switcher-select" id="roleSwitcherSelect" onchange="switchRole(this.value)">
+              <option value="teacher_rajeshwar" selected>Dr. Rajeshwar Sharma (Teacher)</option>
+              <option value="teacher_pooja">Pooja Rathore (Teacher)</option>
+              <option value="parent_suman">Suman Joshi (Parent)</option>
+              <option value="student_aryan">Aryan Sharma (Student)</option>
+              <option value="admin_homeguru">Admin Panel</option>
+            </select>
+          </div>
+
+          <!-- Notification Bell -->
+          <div class="notif-dropdown-wrapper">
+            <button class="icon-pill-btn" id="notifBellBtn" aria-label="Notifications" onclick="toggleNotifDropdown()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-count" id="notifBadgeCount">3</span>
+            </button>
+
+            <!-- Dropdown Panel -->
+            <div class="notif-dropdown-panel" id="notifDropdownPanel">
+              <div class="notif-panel-header">
+                <div class="notif-panel-title">
+                  <span>Notifications</span>
+                  <span class="badge-role-pill badge-role-teacher" id="notifUnreadPill">3 New</span>
+                </div>
+                <button class="notif-mark-read-btn" onclick="markAllNotificationsAsRead()">Mark all read</button>
+              </div>
+              <div class="notif-items-list" id="notifItemsList">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Teacher Profile Link -->
+          <a href="teacher-profile.html" class="btn-download-pill" title="View Public Educator Profile" style="text-decoration:none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Public Profile</span>
+          </a>
+
+          <!-- User Avatar -->
+          <a href="teacher-profile.html">
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+              alt="Teacher Avatar" 
+              class="user-avatar-pill" 
+              id="teacherAvatarImg"
+            >
+          </a>
+        </div>
+      </header>
+
+      <!-- 1. Overview Stat Cards -->
+      <section class="portal-stats-grid">
+        <div class="portal-stat-card">
+          <div class="portal-stat-icon-wrap" style="background:rgba(16,185,129,0.08); color:#059669;">
+            <svg class="teacher-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <div class="portal-stat-info">
+            <h3 id="statTotalReports">2</h3>
+            <p>Reports Uploaded</p>
+          </div>
+        </div>
+
+        <div class="portal-stat-card">
+          <div class="portal-stat-icon-wrap" style="background:rgba(37,99,235,0.08); color:#2563EB;">
+            <svg class="teacher-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              <path d="M9 14l2 2 4-4"></path>
+            </svg>
+          </div>
+          <div class="portal-stat-info">
+            <h3 id="statTotalExams">2</h3>
+            <p>Conducted Exams</p>
+          </div>
+        </div>
+
+        <div class="portal-stat-card">
+          <div class="portal-stat-icon-wrap" style="background:rgba(212,164,55,0.12); color:#B45309;">
+            <svg class="teacher-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <div class="portal-stat-info">
+            <h3 id="statTotalSyllabus">2</h3>
+            <p>Active Syllabi</p>
+          </div>
+        </div>
+
+        <div class="portal-stat-card">
+          <div class="portal-stat-icon-wrap" style="background:rgba(124,58,237,0.08); color:#7C3AED;">
+            <svg class="teacher-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <div class="portal-stat-info">
+            <h3 id="statTotalAnnouncements">2</h3>
+            <p>Active Notices</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Portal Tabs Bar -->
+      <nav class="portal-tabs-bar">
+        <button class="portal-tab-btn active" onclick="switchPortalTab('tabReports', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Progress Reports</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabExams', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+          <span>Examinations &amp; Marks</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabSyllabus', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Class Syllabus</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabUpdates', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Updates &amp; Notices</span>
+        </button>
+      </nav>
+
+      <!-- TAB 1: UPLOAD & SHARE STUDENT REPORTS -->
+      <div id="tabReports" class="portal-tab-content active">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h2 class="portal-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span>Upload Student Progress Report</span>
+              </h2>
+              <p class="portal-panel-subtitle">Upload periodic assessments or concept mastery marks. These immediately appear in the parent's Family Portal.</p>
+            </div>
+            <span class="badge-role-pill badge-role-teacher">Instant Parent Notification</span>
+          </div>
+
+          <form id="uploadReportForm" onsubmit="handleReportSubmit(event)">
+            <div class="portal-form-grid">
+              <div class="form-group-custom">
+                <label class="form-label-custom">Class / Standard *</label>
+                <select class="form-select-custom" id="reportClassSelect" required>
+                  <option value="Class 12">Class 12 (Board / JEE / NEET)</option>
+                  <option value="Class 11">Class 11 Science</option>
+                  <option value="Class 10">Class 10 CBSE</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Section *</label>
+                <select class="form-select-custom" id="reportSectionSelect" required>
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                  <option value="All">All Sections</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Subject *</label>
+                <select class="form-select-custom" id="reportSubjectSelect" required>
+                  <option value="Physics">Physics</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Biology">Biology</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Target Student *</label>
+                <select class="form-select-custom" id="reportStudentSelect" required>
+                  <option value="student_aryan" data-name="Aryan Sharma">Aryan Sharma (Class 12A - Jaipur)</option>
+                  <option value="student_priya" data-name="Priya Joshi">Priya Joshi (Class 12B - Jaipur)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="portal-form-grid">
+              <div class="form-group-custom" style="grid-column: span 2;">
+                <label class="form-label-custom">Report Title *</label>
+                <input type="text" class="form-input-custom" id="reportTitleInput" placeholder="e.g., Monthly Progress & Wave Optics Concept Assessment" required>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Attendance % (Last 30 Days)</label>
+                <input type="number" class="form-input-custom" id="reportAttendanceInput" value="98" min="0" max="100">
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Concept Mastery Index %</label>
+                <input type="number" class="form-input-custom" id="reportConceptInput" value="94" min="0" max="100">
+              </div>
+            </div>
+
+            <div class="form-group-custom" style="margin-bottom: 18px;">
+              <label class="form-label-custom">Teacher Assessment Remarks &amp; Family Guidance</label>
+              <textarea class="form-textarea-custom" id="reportRemarksInput" rows="3" placeholder="Share specific strengths, topics improved, and guidance for parents supporting at home."></textarea>
+            </div>
+
+            <!-- File Dropzone -->
+            <div class="form-group-custom" style="margin-bottom: 22px;">
+              <label class="form-label-custom">Attach Document (PDF, PNG, JPG up to 10 MB)</label>
+              <div class="file-dropzone-custom" id="reportDropzone" onclick="document.getElementById('reportFileInput').click()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--green-soft);">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <div style="font-weight:700; color:var(--green-primary); font-size:0.95rem;" id="reportFileText">Select or drag PDF file here</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">Supports PDF, PNG, JPG, or DOCX</div>
+                <input type="file" id="reportFileInput" style="display:none;" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx" onchange="handleReportFileChosen(this)">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-portal-primary" id="btnUploadReport">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Publish Report to Family</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- History of Uploaded Reports -->
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Previously Published Reports</span>
+              </h3>
+              <p class="portal-panel-subtitle">Archive of all assessments published to parents.</p>
+            </div>
+            <button class="btn-download-pill" onclick="loadReportsTable()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+
+          <div class="portal-table-wrap">
+            <table class="portal-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Class / Subject</th>
+                  <th>Report Title</th>
+                  <th>Date Shared</th>
+                  <th>Attendance</th>
+                  <th>Mastery Score</th>
+                  <th style="text-align:right;">Document</th>
+                </tr>
+              </thead>
+              <tbody id="reportsTableBody">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: EXAMINATION MANAGEMENT -->
+      <div id="tabExams" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h2 class="portal-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span>Create &amp; Publish Examination Results</span>
+              </h2>
+              <p class="portal-panel-subtitle">Record unit tests, enter marks, and auto-calculate student grades.</p>
+            </div>
+          </div>
+
+          <form id="createExamForm" onsubmit="handleCreateExamSubmit(event)">
+            <div class="portal-form-grid">
+              <div class="form-group-custom">
+                <label class="form-label-custom">Examination Name *</label>
+                <input type="text" class="form-input-custom" id="examNameInput" placeholder="e.g., Pre-Board Optics & Waves Simulation" required>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Class &amp; Section *</label>
+                <select class="form-select-custom" id="examClassSelect" required>
+                  <option value="Class 12">Class 12 - Section A</option>
+                  <option value="Class 11">Class 11 - Section A</option>
+                  <option value="Class 10">Class 10 - Section A</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Subject *</label>
+                <select class="form-select-custom" id="examSubjectSelect" required>
+                  <option value="Physics">Physics</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Biology">Biology</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Exam Date *</label>
+                <input type="date" class="form-input-custom" id="examDateInput" required>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Maximum Marks *</label>
+                <input type="number" class="form-input-custom" id="examMaxMarksInput" value="100" min="10" max="500" required>
+              </div>
+            </div>
+
+            <!-- Student Marks Entry Table -->
+            <div style="margin-top: 20px; margin-bottom: 24px;">
+              <h4 style="font-size:1rem; font-weight:800; color:var(--green-primary); margin-bottom:12px;">
+                Enter Student Marks &amp; Individual Remarks
+              </h4>
+              <div class="portal-table-wrap">
+                <table class="portal-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Roll / ID</th>
+                      <th style="width:130px;">Marks Obtained</th>
+                      <th>Percentage</th>
+                      <th>Grade</th>
+                      <th>Teacher Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody id="examMarksTableBody">
+                    <tr>
+                      <td><strong style="color:var(--green-primary);">Aryan Sharma</strong></td>
+                      <td style="color:var(--text-muted); font-size:0.85rem;">HG-STU-1082</td>
+                      <td>
+                        <input type="number" class="form-input-custom exam-mark-input" data-student="student_aryan" data-name="Aryan Sharma" value="94" min="0" max="100" oninput="updateLiveGrade(this)">
+                      </td>
+                      <td class="exam-pct-cell" style="font-weight:700;">94%</td>
+                      <td><span class="badge-grade-pill badge-grade-aplus">A+</span></td>
+                      <td>
+                        <input type="text" class="form-input-custom exam-remark-input" value="Clean mathematical steps; excellent diagram labeling.">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong style="color:var(--green-primary);">Priya Joshi</strong></td>
+                      <td style="color:var(--text-muted); font-size:0.85rem;">HG-STU-2041</td>
+                      <td>
+                        <input type="number" class="form-input-custom exam-mark-input" data-student="student_priya" data-name="Priya Joshi" value="88" min="0" max="100" oninput="updateLiveGrade(this)">
+                      </td>
+                      <td class="exam-pct-cell" style="font-weight:700;">88%</td>
+                      <td><span class="badge-grade-pill badge-grade-a">A</span></td>
+                      <td>
+                        <input type="text" class="form-input-custom exam-remark-input" value="Solid conceptual understanding; revision needed for ray equations.">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-portal-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Publish Examination &amp; Notify Parents</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Conducted Examinations Archive -->
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Conducted Examinations Archive</span>
+              </h3>
+              <p class="portal-panel-subtitle">Review previous tests and published marks.</p>
+            </div>
+            <button class="btn-download-pill" onclick="loadExamsList()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+
+          <div id="examsArchiveList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: CLASS SYLLABUS MANAGEMENT -->
+      <div id="tabSyllabus" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h2 class="portal-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Class &amp; Subject Syllabus Management</span>
+              </h2>
+              <p class="portal-panel-subtitle">Upload chapter breakdowns, examination blueprints, and topic schedules.</p>
+            </div>
+          </div>
+
+          <form id="uploadSyllabusForm" onsubmit="handleSyllabusSubmit(event)">
+            <div class="portal-form-grid">
+              <div class="form-group-custom">
+                <label class="form-label-custom">Syllabus Title *</label>
+                <input type="text" class="form-input-custom" id="sylTitleInput" placeholder="e.g., Annual Board Physics Blueprint & Topic Schedule" required>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Class *</label>
+                <select class="form-select-custom" id="sylClassSelect" required>
+                  <option value="Class 12">Class 12</option>
+                  <option value="Class 11">Class 11</option>
+                  <option value="Class 10">Class 10</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Subject *</label>
+                <select class="form-select-custom" id="sylSubjectSelect" required>
+                  <option value="Physics">Physics</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Biology">Biology</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Academic Session *</label>
+                <select class="form-select-custom" id="sylSessionSelect" required>
+                  <option value="2026-2027">2026-2027</option>
+                  <option value="2025-2026">2025-2026</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-custom" style="margin-bottom:18px;">
+              <label class="form-label-custom">Syllabus Summary &amp; Chapter Weightage Description</label>
+              <textarea class="form-textarea-custom" id="sylDescInput" rows="2" placeholder="Brief outline of units covered, marks allocation, and board criteria."></textarea>
+            </div>
+
+            <!-- Dropzone -->
+            <div class="form-group-custom" style="margin-bottom: 22px;">
+              <label class="form-label-custom">Upload Syllabus Document (PDF)</label>
+              <div class="file-dropzone-custom" onclick="document.getElementById('sylFileInput').click()">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <div style="font-weight:700; color:var(--green-primary);" id="sylFileText">Click to select Syllabus PDF</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">PDF up to 10MB</div>
+                <input type="file" id="sylFileInput" style="display:none;" accept=".pdf,.doc,.docx" onchange="handleSylFileChosen(this)">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-portal-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Publish Syllabus for Families</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Current Active Syllabi List -->
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <h3 class="portal-panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Active Syllabus Documents</span>
+            </h3>
+          </div>
+          <div id="syllabusListWrap">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: TEACHER UPDATES & ANNOUNCEMENTS -->
+      <div id="tabUpdates" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h2 class="portal-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Post Announcement or Homework Notice</span>
+              </h2>
+              <p class="portal-panel-subtitle">Broadcast immediate notices, homework assignments, or test preparation tips to linked families.</p>
+            </div>
+          </div>
+
+          <form id="postAnnouncementForm" onsubmit="handleAnnouncementSubmit(event)">
+            <div class="portal-form-grid">
+              <div class="form-group-custom" style="grid-column:span 2;">
+                <label class="form-label-custom">Notice Title *</label>
+                <input type="text" class="form-input-custom" id="annTitleInput" placeholder="e.g., Young's Double Slit Formula Practice & Weekend Home Timing" required>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Notice Category *</label>
+                <select class="form-select-custom" id="annTypeSelect" required>
+                  <option value="homework">Homework Assignment</option>
+                  <option value="general">General Class Update</option>
+                  <option value="exam">Examination Notice</option>
+                  <option value="performance">Student Recognition</option>
+                </select>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom">Target Class</label>
+                <select class="form-select-custom" id="annClassSelect" required>
+                  <option value="Class 12">Class 12</option>
+                  <option value="Class 11">Class 11</option>
+                  <option value="All">All Enrolled Classes</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-custom" style="margin-bottom:18px;">
+              <label class="form-label-custom">Announcement Body *</label>
+              <textarea class="form-textarea-custom" id="annBodyInput" rows="4" placeholder="Write full details, problem numbers, or special instructions..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-portal-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Broadcast Update</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Previously Published Updates -->
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <h3 class="portal-panel-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Published Updates Feed</span>
+            </h3>
+          </div>
+          <div id="announcementsFeedWrap">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FIREBASE & LOGIC SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="shared-data.js"></script>
+
+  <script>
+    function switchPortalTab(tabId, btn) {
+      document.querySelectorAll('.portal-tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    function switchRole(val) {
+      if (val === 'admin_homeguru') {
+        window.location.href = 'admin-panel.html';
+        return;
+      }
+      if (val === 'parent_suman') {
+        window.location.href = 'parent-portal.html';
+        return;
+      }
+      if (val === 'student_aryan') {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.switchActiveRole('teacher');
+      }
+      window.location.reload();
+    }
+
+    function toggleNotifDropdown() {
+      document.getElementById('notifDropdownPanel').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrapper = document.querySelector('.notif-dropdown-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        document.getElementById('notifDropdownPanel').classList.remove('open');
+      }
+    });
+
+    let selectedReportFile = null;
+    function handleReportFileChosen(input) {
+      if (input.files && input.files[0]) {
+        selectedReportFile = input.files[0];
+        document.getElementById('reportFileText').innerText = 'Attached: ' + selectedReportFile.name + ' (' + Math.round(selectedReportFile.size/1024) + ' KB)';
+        document.getElementById('reportDropzone').classList.add('has-file');
+      }
+    }
+
+    let selectedSylFile = null;
+    function handleSylFileChosen(input) {
+      if (input.files && input.files[0]) {
+        selectedSylFile = input.files[0];
+        document.getElementById('sylFileText').innerText = 'Attached: ' + selectedSylFile.name + ' (' + Math.round(selectedSylFile.size/1024) + ' KB)';
+      }
+    }
+
+    function updateLiveGrade(input) {
+      const row = input.closest('tr');
+      const maxMarks = Number(document.getElementById('examMaxMarksInput').value) || 100;
+      const val = Number(input.value) || 0;
+      const pct = Math.round((val / maxMarks) * 100);
+      row.querySelector('.exam-pct-cell').innerText = pct + '%';
+      
+      const gradePill = row.querySelector('.badge-grade-pill');
+      if (pct >= 90) {
+        gradePill.className = 'badge-grade-pill badge-grade-aplus';
+        gradePill.innerText = 'A+';
+      } else if (pct >= 80) {
+        gradePill.className = 'badge-grade-pill badge-grade-a';
+        gradePill.innerText = 'A';
+      } else {
+        gradePill.className = 'badge-grade-pill badge-grade-b';
+        gradePill.innerText = 'B+';
+      }
+    }
+
+    async function handleReportSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnUploadReport');
+      btn.disabled = true;
+      btn.innerText = 'Uploading to Secure Storage...';
+
+      const studentSelect = document.getElementById('reportStudentSelect');
+      const studentUid = studentSelect.value;
+      const studentName = studentSelect.options[studentSelect.selectedIndex].getAttribute('data-name');
+
+      const reportPayload = {
+        title: document.getElementById('reportTitleInput').value,
+        className: document.getElementById('reportClassSelect').value,
+        section: document.getElementById('reportSectionSelect').value,
+        subject: document.getElementById('reportSubjectSelect').value,
+        studentUid: studentUid,
+        studentName: studentName,
+        attendancePct: document.getElementById('reportAttendanceInput').value,
+        conceptScore: document.getElementById('reportConceptInput').value,
+        description: document.getElementById('reportRemarksInput').value
+      };
+
+      try {
+        await window.HomeGuruFirebase.uploadStudentReport(reportPayload, selectedReportFile);
+        alert('Academic Report published successfully. The linked parent has been notified.');
+        document.getElementById('uploadReportForm').reset();
+        selectedReportFile = null;
+        document.getElementById('reportFileText').innerText = 'Select or drag PDF file here';
+        document.getElementById('reportDropzone').classList.remove('has-file');
+        loadReportsTable();
+        loadOverviewStats();
+        loadNotifications();
+      } catch (err) {
+        alert('Error uploading report: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Publish Report to Family</span>
+        `;
+      }
+    }
+
+    async function handleCreateExamSubmit(e) {
+      e.preventDefault();
+      const maxMarks = Number(document.getElementById('examMaxMarksInput').value) || 100;
+      const rows = document.querySelectorAll('#examMarksTableBody tr');
+      const results = [];
+
+      rows.forEach((r, idx) => {
+        const inp = r.querySelector('.exam-mark-input');
+        const remInp = r.querySelector('.exam-remark-input');
+        const stUid = inp.getAttribute('data-student');
+        const stName = inp.getAttribute('data-name');
+        const marks = Number(inp.value) || 0;
+        const pct = Math.round((marks / maxMarks) * 100);
+        let grade = 'A+';
+        if (pct < 90) grade = 'A';
+        if (pct < 80) grade = 'B+';
+
+        results.push({
+          studentUid: stUid,
+          studentName: stName,
+          marksObtained: marks,
+          maxMarks: maxMarks,
+          percentage: pct,
+          grade: grade,
+          rank: idx + 1,
+          remarks: remInp ? remInp.value : ''
+        });
+      });
+
+      const examPayload = {
+        examName: document.getElementById('examNameInput').value,
+        className: document.getElementById('examClassSelect').value,
+        subject: document.getElementById('examSubjectSelect').value,
+        examDate: document.getElementById('examDateInput').value,
+        maxMarks: maxMarks,
+        results: results
+      };
+
+      try {
+        await window.HomeGuruFirebase.createExamination(examPayload);
+        alert('Examination results published and broadcast to students and parents.');
+        document.getElementById('createExamForm').reset();
+        loadExamsList();
+        loadOverviewStats();
+        loadNotifications();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    async function handleSyllabusSubmit(e) {
+      e.preventDefault();
+      const sylPayload = {
+        title: document.getElementById('sylTitleInput').value,
+        className: document.getElementById('sylClassSelect').value,
+        subject: document.getElementById('sylSubjectSelect').value,
+        academicSession: document.getElementById('sylSessionSelect').value,
+        description: document.getElementById('sylDescInput').value
+      };
+
+      try {
+        await window.HomeGuruFirebase.uploadSyllabus(sylPayload, selectedSylFile);
+        alert('Syllabus document published successfully.');
+        document.getElementById('uploadSyllabusForm').reset();
+        selectedSylFile = null;
+        document.getElementById('sylFileText').innerText = 'Click to select Syllabus PDF';
+        loadSyllabusList();
+        loadOverviewStats();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    async function handleAnnouncementSubmit(e) {
+      e.preventDefault();
+      const annPayload = {
+        title: document.getElementById('annTitleInput').value,
+        body: document.getElementById('annBodyInput').value,
+        type: document.getElementById('annTypeSelect').value,
+        className: document.getElementById('annClassSelect').value
+      };
+
+      try {
+        await window.HomeGuruFirebase.postAnnouncement(annPayload);
+        alert('Announcement broadcasted to students and parents.');
+        document.getElementById('postAnnouncementForm').reset();
+        loadAnnouncementsFeed();
+        loadOverviewStats();
+        loadNotifications();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    async function loadReportsTable() {
+      const tbody = document.getElementById('reportsTableBody');
+      const reports = await window.HomeGuruFirebase.getReports();
+      if (!reports || reports.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding:24px; color:var(--text-muted);">No reports uploaded yet.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = reports.map(r => `
+        <tr>
+          <td><strong style="color:var(--green-primary);">${r.studentName || 'Student'}</strong></td>
+          <td><span class="badge-role-pill badge-role-teacher">${r.className} &bull; ${r.subject}</span></td>
+          <td style="max-width:280px; font-weight:600;">${r.title}</td>
+          <td style="color:var(--text-muted); font-size:0.86rem;">${new Date(r.uploadedAt).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}</td>
+          <td><span style="color:#059669; font-weight:700;">${r.attendancePct || 98}%</span></td>
+          <td><span style="color:var(--gold-hover); font-weight:700;">${r.conceptScore || 90}%</span></td>
+          <td style="text-align:right;">
+            <a href="${r.fileUrl || '#'}" download="${r.fileName || 'Report.pdf'}" class="btn-download-pill" style="font-size:0.8rem; padding:6px 12px;" onclick="if(this.getAttribute('href')==='#'){alert('Previewing stored report document: ' + '${r.fileName}'); return false;}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download</span>
+            </a>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function loadExamsList() {
+      const wrap = document.getElementById('examsArchiveList');
+      const exams = await window.HomeGuruFirebase.getExaminations();
+      if (!exams || exams.length === 0) {
+        wrap.innerHTML = '<p style="color:var(--text-muted); padding:16px;">No exams recorded yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = exams.map(ex => `
+        <div style="background:#FDFBF7; border:1px solid rgba(18,60,50,0.08); border-radius:var(--radius-md); padding:18px; margin-bottom:14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <h4 style="font-size:1.05rem; font-weight:800; color:var(--green-primary);">${ex.examName}</h4>
+            <span class="badge-role-pill badge-role-student">Max Marks: ${ex.maxMarks} &bull; ${ex.examDate}</span>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            ${(ex.results || []).map(res => `
+              <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.08); border-radius:var(--radius-sm); padding:10px 14px; display:flex; align-items:center; gap:10px;">
+                <span class="badge-grade-pill badge-grade-aplus">${res.grade}</span>
+                <div>
+                  <div style="font-weight:700; font-size:0.9rem; color:var(--text-dark);">${res.studentName}</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">Score: ${res.marksObtained}/${ex.maxMarks} (${res.percentage}%)</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function loadSyllabusList() {
+      const wrap = document.getElementById('syllabusListWrap');
+      const list = await window.HomeGuruFirebase.getSyllabus();
+      if (!list || list.length === 0) {
+        wrap.innerHTML = '<p style="color:var(--text-muted); padding:16px;">No syllabus uploaded yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = list.map(s => `
+        <div class="family-report-card">
+          <div class="family-report-info">
+            <h4 style="color:var(--green-primary); font-size:1.05rem;">${s.title}</h4>
+            <p style="color:var(--text-body); font-size:0.9rem;">${s.description || 'Comprehensive class breakdown with blueprint and marks allocation.'}</p>
+            <div class="family-report-meta">
+              <span>Class: ${s.className} (${s.subject})</span>
+              <span>Session: ${s.academicSession}</span>
+              <span>File: ${s.fileName}</span>
+            </div>
+          </div>
+          <a href="${s.fileUrl || '#'}" class="btn-download-pill" onclick="if(this.getAttribute('href')==='#'){alert('Opening syllabus document: ' + '${s.fileName}'); return false;}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download</span>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    async function loadAnnouncementsFeed() {
+      const wrap = document.getElementById('announcementsFeedWrap');
+      const list = await window.HomeGuruFirebase.getAnnouncements();
+      if (!list || list.length === 0) {
+        wrap.innerHTML = '<p style="color:var(--text-muted); padding:16px;">No announcements posted yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = list.map(a => `
+        <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.08); border-radius:var(--radius-md); padding:18px; margin-bottom:14px; box-shadow:var(--shadow-subtle);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge-role-pill badge-role-teacher">${a.type.toUpperCase()}</span>
+              <strong style="color:var(--green-primary); font-size:1.02rem;">${a.title}</strong>
+            </div>
+            <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">
+              ${new Date(a.createdAt).toLocaleDateString('en-IN', { day:'numeric', month:'short' })}
+            </span>
+          </div>
+          <p style="color:var(--text-body); font-size:0.92rem; line-height:1.5;">${a.body}</p>
+          <div style="margin-top:10px; font-size:0.8rem; font-weight:600; color:var(--text-muted);">
+            Target: ${a.className} &bull; Author: ${a.teacherName}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function loadOverviewStats() {
+      const reports = await window.HomeGuruFirebase.getReports();
+      const exams = await window.HomeGuruFirebase.getExaminations();
+      const syllabus = await window.HomeGuruFirebase.getSyllabus();
+      const anns = await window.HomeGuruFirebase.getAnnouncements();
+
+      document.getElementById('statTotalReports').innerText = reports.length;
+      document.getElementById('statTotalExams').innerText = exams.length;
+      document.getElementById('statTotalSyllabus').innerText = syllabus.length;
+      document.getElementById('statTotalAnnouncements').innerText = anns.length;
+    }
+
+    function loadNotifications() {
+      const currentUser = window.HomeGuruFirebase.getCurrentUser();
+      const notifs = window.HomeGuruFirebase.getNotifications(currentUser.uid);
+      const unread = notifs.filter(n => !n.isRead);
+
+      document.getElementById('notifBadgeCount').innerText = unread.length;
+      document.getElementById('notifUnreadPill').innerText = unread.length + ' New';
+
+      const listWrap = document.getElementById('notifItemsList');
+      if (notifs.length === 0) {
+        listWrap.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">No new notifications.</div>';
+        return;
+      }
+
+      listWrap.innerHTML = notifs.map(n => `
+        <div class="notif-item ${n.isRead ? '' : 'unread'}" onclick="markNotificationRead('${n.id}')">
+          <div class="notif-content-wrap">
+            <div class="notif-item-title">${n.title}</div>
+            <div class="notif-item-msg">${n.message}</div>
+            <div class="notif-item-time">${new Date(n.createdAt).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' })}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function markNotificationRead(id) {
+      window.HomeGuruFirebase.markNotificationRead(id);
+      loadNotifications();
+    }
+
+    function markAllNotificationsAsRead() {
+      const currentUser = window.HomeGuruFirebase.getCurrentUser();
+      window.HomeGuruFirebase.markAllNotificationsRead(currentUser.uid);
+      loadNotifications();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateInp = document.getElementById('examDateInput');
+      if (dateInp) dateInp.value = new Date().toISOString().split('T')[0];
+
+      loadReportsTable();
+      loadExamsList();
+      loadSyllabusList();
+      loadAnnouncementsFeed();
+      loadOverviewStats();
+      loadNotifications();
+    });
+  </script>
+</body>
+</html>

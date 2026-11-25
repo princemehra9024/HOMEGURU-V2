@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "students": {
+      ".read": true,
+      "$studentId": {
+        ".write": true
+      }
+    },
+    "educators": {
+      ".read": true,
+      "$educatorId": {
+        ".write": true
+      }
+    },
+    "bookings": {
+      ".read": true,
+      "$bookingId": {
+        ".write": true
+      }
+    },
+    "wellbeing_logs": {
+      ".read": true,
+      "$logId": {
+        ".write": true
+      }
+    }
+  }
+}
+

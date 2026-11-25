@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Communication Portal | HomeGuru</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Family Portal (Active) -->
+        <a href="parent-portal.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Family Portal</span>
+        </a>
+
+        <a href="teacher-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Teacher Portal</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <a href="admin-panel.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Admin Panel</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Sign In / Switch</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Promo Card -->
+      <div class="sidebar-promo-card">
+        <h4 class="promo-title">Family Peace of Mind</h4>
+        <p class="promo-sub">Direct access to verified teacher marksheets, homework, and calm progress.</p>
+        <a href="teacher-portal.html" class="promo-btn">Educator Portal &rarr;</a>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+            <h1 style="font-size:1.75rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.03em;">
+              Family &amp; Parent Portal
+            </h1>
+            <span class="badge-role-pill badge-role-parent">Parent View</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; font-weight:500;">
+            Academic progress tracking, examination results, and direct educator updates for your child.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Role Switcher -->
+          <div class="role-switcher-wrap" title="Switch active persona for testing">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">View As:</span>
+            <select class="role-switcher-select" id="roleSwitcherSelect" onchange="switchRole(this.value)">
+              <option value="parent_suman" selected>Suman Joshi (Parent)</option>
+              <option value="teacher_rajeshwar">Dr. Rajeshwar Sharma (Teacher)</option>
+              <option value="student_aryan">Aryan Sharma (Student)</option>
+              <option value="admin_homeguru">Admin Panel</option>
+            </select>
+          </div>
+
+          <!-- Notification Bell -->
+          <div class="notif-dropdown-wrapper">
+            <button class="icon-pill-btn" id="notifBellBtn" aria-label="Notifications" onclick="toggleNotifDropdown()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-count" id="notifBadgeCount">3</span>
+            </button>
+
+            <!-- Dropdown Panel -->
+            <div class="notif-dropdown-panel" id="notifDropdownPanel">
+              <div class="notif-panel-header">
+                <div class="notif-panel-title">
+                  <span>Parent Alerts</span>
+                  <span class="badge-role-pill badge-role-parent" id="notifUnreadPill">3 New</span>
+                </div>
+                <button class="notif-mark-read-btn" onclick="markAllNotificationsAsRead()">Mark all read</button>
+              </div>
+              <div class="notif-items-list" id="notifItemsList">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatar -->
+          <img 
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" 
+            alt="Parent Avatar" 
+            class="user-avatar-pill" 
+            title="Suman Joshi (Parent Account)"
+          >
+        </div>
+      </header>
+
+      <!-- 1. Child Overview & Summary Card -->
+      <section class="portal-panel-card" style="background: linear-gradient(135deg, #FAF7F2 0%, #FFFFFF 100%); border-left: 5px solid var(--green-primary); margin-bottom: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+          <div style="display:flex; align-items:center; gap:20px;">
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" 
+              alt="Child Avatar" 
+              style="width:68px; height:68px; border-radius:18px; object-fit:cover; border:2.5px solid var(--gold); box-shadow:0 4px 14px rgba(18,60,50,0.12);"
+            >
+            <div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <h2 style="font-size:1.55rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.02em;">
+                  Aryan Sharma
+                </h2>
+                <span class="badge-role-pill badge-role-student">Class 12A &bull; Jaipur</span>
+              </div>
+              <p style="font-size:0.92rem; color:var(--text-body); margin-top:4px; font-weight:500;">
+                Home Mentorship: <strong>Dr. Rajeshwar Sharma</strong> (Physics JEE &bull; 3 Sessions/Week)
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.1); border-radius:var(--radius-sm); padding:12px 18px; text-align:center; min-width:105px;">
+              <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Attendance</div>
+              <div style="font-size:1.4rem; font-weight:800; color:#059669; margin-top:2px;">98%</div>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.1); border-radius:var(--radius-sm); padding:12px 18px; text-align:center; min-width:105px;">
+              <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Latest Exam</div>
+              <div style="font-size:1.4rem; font-weight:800; color:var(--green-primary); margin-top:2px;">94/100</div>
+            </div>
+            <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.1); border-radius:var(--radius-sm); padding:12px 18px; text-align:center; min-width:105px;">
+              <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;">Calm Index</div>
+              <div style="font-size:1.4rem; font-weight:800; color:var(--gold-hover); margin-top:2px;">92%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Family Navigation Tabs -->
+      <nav class="portal-tabs-bar">
+        <button class="portal-tab-btn active" onclick="switchPortalTab('tabReports', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span>Academic Reports</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabExams', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+          <span>Examination Results</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabSyllabus', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Class Syllabus</span>
+        </button>
+        <button class="portal-tab-btn" onclick="switchPortalTab('tabUpdates', this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Teacher Notices</span>
+        </button>
+      </nav>
+
+      <!-- TAB 1: ACADEMIC REPORTS & HISTORY -->
+      <div id="tabReports" class="portal-tab-content active">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span>Academic Assessments &amp; Reports</span>
+              </h3>
+              <p class="portal-panel-subtitle">Official progress records uploaded by your home tutor with concept scores and guidance.</p>
+            </div>
+            <button class="btn-download-pill" onclick="loadParentReports()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+
+          <div id="parentReportsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: EXAMINATION RESULTS & GRADES -->
+      <div id="tabExams" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+                <span>Board Simulations &amp; Examination Marksheets</span>
+              </h3>
+              <p class="portal-panel-subtitle">Subject breakdown, marks obtained, percentage, and educator evaluation remarks.</p>
+            </div>
+          </div>
+
+          <div id="parentExamsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: CLASS SYLLABUS -->
+      <div id="tabSyllabus" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>Curriculum Syllabi &amp; Examination Blueprints</span>
+              </h3>
+              <p class="portal-panel-subtitle">Download chapter schedules and marks weightage distribution guidelines.</p>
+            </div>
+          </div>
+
+          <div id="parentSyllabusList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: TEACHER UPDATES & HOMEWORK -->
+      <div id="tabUpdates" class="portal-tab-content">
+        <div class="portal-panel-card">
+          <div class="portal-panel-header">
+            <div>
+              <h3 class="portal-panel-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--green-primary);">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Classroom Broadcasts &amp; Homework Notices</span>
+              </h3>
+              <p class="portal-panel-subtitle">Daily assignments, study preparation tips, and test notifications from teachers.</p>
+            </div>
+          </div>
+
+          <div id="parentAnnouncementsList">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FIREBASE & LOGIC SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="shared-data.js"></script>
+
+  <script>
+    function switchPortalTab(tabId, btn) {
+      document.querySelectorAll('.portal-tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    function switchRole(val) {
+      if (val === 'admin_homeguru') {
+        window.location.href = 'admin-panel.html';
+        return;
+      }
+      if (val === 'teacher_rajeshwar') {
+        window.location.href = 'teacher-portal.html';
+        return;
+      }
+      if (val === 'student_aryan') {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.switchActiveRole('parent');
+      }
+      window.location.reload();
+    }
+
+    function toggleNotifDropdown() {
+      document.getElementById('notifDropdownPanel').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrapper = document.querySelector('.notif-dropdown-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        document.getElementById('notifDropdownPanel').classList.remove('open');
+      }
+    });
+
+    async function loadParentReports() {
+      const wrap = document.getElementById('parentReportsList');
+      const reports = await window.HomeGuruFirebase.getReports({ studentUid: 'student_aryan' });
+      if (!reports || reports.length === 0) {
+        wrap.innerHTML = '<p style="padding:24px; text-align:center; color:var(--text-muted);">No reports uploaded yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = reports.map(r => `
+        <div class="family-report-card">
+          <div class="family-report-info" style="flex:1;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <span class="badge-role-pill badge-role-teacher">${r.subject}</span>
+              <span style="font-size:0.8rem; font-weight:600; color:var(--text-muted);">${new Date(r.uploadedAt).toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })}</span>
+            </div>
+            <h4 style="color:var(--green-primary); font-size:1.05rem;">${r.title}</h4>
+            <p style="color:var(--text-body); font-size:0.9rem;">${r.description || 'Verified concept assessment conducted during home tutorial session.'}</p>
+            <div class="family-report-meta">
+              <span>Teacher: <strong>${r.teacherName}</strong></span>
+              <span>Attendance: <strong style="color:#059669;">${r.attendancePct || 98}%</strong></span>
+              <span>Retention: <strong style="color:var(--gold-hover);">${r.conceptScore || 92}%</strong></span>
+              <span>Document: ${r.fileName || 'Report.pdf'}</span>
+            </div>
+          </div>
+          <a href="${r.fileUrl || '#'}" download="${r.fileName || 'Report.pdf'}" class="btn-download-pill" onclick="if(this.getAttribute('href')==='#'){alert('Previewing stored academic report: ' + '${r.fileName}'); return false;}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download</span>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    async function loadParentExams() {
+      const wrap = document.getElementById('parentExamsList');
+      const exams = await window.HomeGuruFirebase.getExaminations();
+      if (!exams || exams.length === 0) {
+        wrap.innerHTML = '<p style="padding:24px; text-align:center; color:var(--text-muted);">No examination marks published yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = exams.map(ex => {
+        const aryanRes = (ex.results || []).find(r => r.studentUid === 'student_aryan') || (ex.results || [])[0];
+        return `
+          <div class="family-report-card" style="align-items:flex-start;">
+            <div style="flex:1;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+                <div>
+                  <h4 style="font-size:1.15rem; color:var(--green-primary); font-weight:800;">${ex.examName}</h4>
+                  <div style="font-size:0.84rem; color:var(--text-muted); font-weight:600; margin-top:2px;">
+                    Subject: ${ex.subject} &bull; Date: ${ex.examDate} &bull; Evaluator: ${ex.teacherName}
+                  </div>
+                </div>
+                ${aryanRes ? `
+                  <div style="display:flex; align-items:center; gap:12px; background:#FDFBF7; border:1px solid rgba(18,60,50,0.1); border-radius:var(--radius-sm); padding:8px 16px;">
+                    <span class="badge-grade-pill badge-grade-aplus">${aryanRes.grade}</span>
+                    <div style="text-align:right;">
+                      <div style="font-size:1.25rem; font-weight:800; color:var(--green-primary); line-height:1;">${aryanRes.marksObtained} / ${ex.maxMarks}</div>
+                      <div style="font-size:0.75rem; font-weight:700; color:#059669; margin-top:2px;">Score: ${aryanRes.percentage}% &bull; Rank #${aryanRes.rank}</div>
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
+
+              ${aryanRes && aryanRes.remarks ? `
+                <div style="background:#FAF7F2; border-left:3.5px solid var(--gold); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:10px 14px; margin-top:8px;">
+                  <strong style="font-size:0.82rem; color:var(--green-primary); text-transform:uppercase; letter-spacing:0.02em;">Educator Remarks:</strong>
+                  <p style="font-size:0.88rem; color:var(--text-body); margin-top:2px; font-weight:500;">"${aryanRes.remarks}"</p>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function loadParentSyllabus() {
+      const wrap = document.getElementById('parentSyllabusList');
+      const list = await window.HomeGuruFirebase.getSyllabus();
+      if (!list || list.length === 0) {
+        wrap.innerHTML = '<p style="padding:24px; text-align:center; color:var(--text-muted);">No syllabus posted yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = list.map(s => `
+        <div class="family-report-card">
+          <div class="family-report-info">
+            <h4 style="color:var(--green-primary); font-size:1.05rem;">${s.title}</h4>
+            <p style="color:var(--text-body); font-size:0.9rem;">${s.description || 'Prescribed board and competitive examination topic schedule.'}</p>
+            <div class="family-report-meta">
+              <span>Class: ${s.className} (${s.subject})</span>
+              <span>Session: ${s.academicSession}</span>
+              <span>Teacher: ${s.teacherName}</span>
+            </div>
+          </div>
+          <a href="${s.fileUrl || '#'}" class="btn-download-pill" onclick="if(this.getAttribute('href')==='#'){alert('Opening syllabus document: ' + '${s.fileName}'); return false;}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download</span>
+          </a>
+        </div>
+      `).join('');
+    }
+
+    async function loadParentAnnouncements() {
+      const wrap = document.getElementById('parentAnnouncementsList');
+      const list = await window.HomeGuruFirebase.getAnnouncements();
+      if (!list || list.length === 0) {
+        wrap.innerHTML = '<p style="padding:24px; text-align:center; color:var(--text-muted);">No updates posted yet.</p>';
+        return;
+      }
+
+      wrap.innerHTML = list.map(a => `
+        <div style="background:#FFFFFF; border:1px solid rgba(18,60,50,0.08); border-radius:var(--radius-md); padding:18px; margin-bottom:14px; box-shadow:var(--shadow-subtle);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge-role-pill badge-role-teacher">${a.type.toUpperCase()}</span>
+              <strong style="color:var(--green-primary); font-size:1.02rem;">${a.title}</strong>
+            </div>
+            <span style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">
+              ${new Date(a.createdAt).toLocaleDateString('en-IN', { day:'numeric', month:'short' })}
+            </span>
+          </div>
+          <p style="color:var(--text-body); font-size:0.92rem; line-height:1.5;">${a.body}</p>
+          <div style="margin-top:10px; font-size:0.8rem; font-weight:600; color:var(--text-muted);">
+            Teacher: ${a.teacherName} &bull; Class: ${a.className}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadNotifications() {
+      const notifs = window.HomeGuruFirebase.getNotifications('parent_suman');
+      const unread = notifs.filter(n => !n.isRead);
+
+      document.getElementById('notifBadgeCount').innerText = unread.length;
+      document.getElementById('notifUnreadPill').innerText = unread.length + ' New';
+
+      const listWrap = document.getElementById('notifItemsList');
+      if (notifs.length === 0) {
+        listWrap.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">No notifications.</div>';
+        return;
+      }
+
+      listWrap.innerHTML = notifs.map(n => `
+        <div class="notif-item ${n.isRead ? '' : 'unread'}" onclick="markNotificationRead('${n.id}')">
+          <div class="notif-content-wrap">
+            <div class="notif-item-title">${n.title}</div>
+            <div class="notif-item-msg">${n.message}</div>
+            <div class="notif-item-time">${new Date(n.createdAt).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' })}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function markNotificationRead(id) {
+      window.HomeGuruFirebase.markNotificationRead(id);
+      loadNotifications();
+    }
+
+    function markAllNotificationsAsRead() {
+      window.HomeGuruFirebase.markAllNotificationsRead('parent_suman');
+      loadNotifications();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadParentReports();
+      loadParentExams();
+      loadParentSyllabus();
+      loadParentAnnouncements();
+      loadNotifications();
+    });
+  </script>
+</body>
+</html>

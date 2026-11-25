@@ -1,0 +1,114 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for Role-Based Access Control
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function getUserRole() {
+      return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        ? getUserData().role
+        : 'student';
+    }
+
+    function isAdmin() {
+      return isSignedIn() && getUserRole() == 'admin';
+    }
+
+    function isTeacher() {
+      return isSignedIn() && (getUserRole() == 'teacher' || getUserRole() == 'admin');
+    }
+
+    function isParent() {
+      return isSignedIn() && (getUserRole() == 'parent' || getUserRole() == 'admin');
+    }
+
+    // Central Users Registry (Admin, Teacher, Parent, Student)
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Student private accounts & profile settings (Preserved)
+    match /students/{studentId} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn() && (request.auth.uid == studentId || isAdmin());
+    }
+
+    // Public verified educator directory (Preserved)
+    match /educators/{educatorId} {
+      allow read: if true;
+      allow write: if isSignedIn() && (request.auth.uid == educatorId || isAdmin());
+    }
+
+    // Home tutoring session bookings & schedules (Preserved)
+    match /bookings/{bookingId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Confidential Student Wellbeing & Calm Index reports (Preserved)
+    match /wellbeing_logs/{logId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Student Academic Reports (Teacher Uploads -> Parents/Students View)
+    match /reports/{reportId} {
+      allow read: if isSignedIn() && (
+        isAdmin() ||
+        resource.data.teacherUid == request.auth.uid ||
+        resource.data.studentUid == request.auth.uid ||
+        (getUserData().linkedStudentIds != null && resource.data.studentUid in getUserData().linkedStudentIds)
+      );
+      allow create: if isTeacher();
+      allow update, delete: if isTeacher() && (resource.data.teacherUid == request.auth.uid || isAdmin());
+    }
+
+    // Examinations & Marksheets
+    match /examinations/{examId} {
+      allow read: if isSignedIn();
+      allow create: if isTeacher();
+      allow update, delete: if isTeacher() && (resource.data.teacherUid == request.auth.uid || isAdmin());
+
+      // Student-specific exam results
+      match /results/{studentUid} {
+        allow read: if isSignedIn() && (
+          isAdmin() ||
+          isTeacher() ||
+          request.auth.uid == studentUid ||
+          (getUserData().linkedStudentIds != null && studentUid in getUserData().linkedStudentIds)
+        );
+        allow write: if isTeacher();
+      }
+    }
+
+    // Class & Subject Syllabus
+    match /syllabus/{syllabusId} {
+      allow read: if isSignedIn();
+      allow create: if isTeacher();
+      allow update, delete: if isTeacher() && (resource.data.teacherUid == request.auth.uid || isAdmin());
+    }
+
+    // Teacher Announcements & Homework Updates
+    match /announcements/{announcementId} {
+      allow read: if isSignedIn();
+      allow create: if isTeacher();
+      allow update, delete: if isTeacher() && (resource.data.teacherUid == request.auth.uid || isAdmin());
+    }
+
+    // Notification Queue
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() && (resource.data.recipientUid == request.auth.uid || isAdmin());
+      allow create: if isSignedIn();
+      allow update: if isSignedIn() && resource.data.recipientUid == request.auth.uid;
+      allow delete: if isSignedIn() && (resource.data.recipientUid == request.auth.uid || isAdmin());
+    }
+  }
+}

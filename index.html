@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeGuru Dashboard | Verified Local Home Tutors</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR (Matching reference image with HomeGuru Forest Green & Gold) -->
+    <aside class="app-sidebar">
+      
+      <!-- Original HomeGuru House + Graduation Cap Logo -->
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <!-- Menu Navigation -->
+      <nav class="sidebar-nav">
+        <!-- Active Dashboard Pill -->
+        <a href="index.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <!-- Find Tutors (Search Page) -->
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <!-- Teacher Portal -->
+        <a href="teacher-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Teacher Portal</span>
+        </a>
+
+        <!-- Family Portal -->
+        <a href="parent-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Family Portal</span>
+        </a>
+
+        <!-- City Rankings -->
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Student Profile (Shows student details & + boxes to hire teachers) -->
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <!-- Admin Panel -->
+        <a href="admin-panel.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <span>Admin Panel</span>
+        </a>
+
+        <!-- Student Sign In / Auth -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Student Sign In</span>
+        </a>
+
+        <!-- Wellbeing Shield -->
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <!-- Settings -->
+        <a href="#settings" onclick="alert('Student Settings')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Bottom Promo Card in HomeGuru Theme -->
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h4 class="promo-title">Living With Family</h4>
+        <p class="promo-sub">Zero isolation anxiety. Study at your own desk in your city.</p>
+        <a href="search.html" class="promo-btn">Hire Local Tutor →</a>
+      </div>
+
+    </aside>
+
+    <!-- 2. MAIN BENTO WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header Row -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1 style="display:flex; align-items:center; gap:8px;">
+            <span>Hello, Aryan</span>
+          </h1>
+          <p>Welcome back! Choose the right tutor in your own city.</p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Search Pill -->
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              class="search-pill-input" 
+              placeholder="Search tutor, subject, area..." 
+              onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)"
+            >
+          </div>
+
+          <!-- Notification Bell with Dropdown -->
+          <div class="notif-dropdown-wrapper">
+            <button class="icon-pill-btn" id="notifBellBtn" aria-label="Notifications" onclick="toggleIndexNotif()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+              <span class="notif-badge-count" id="indexNotifCount">2</span>
+            </button>
+
+            <!-- Dropdown Panel -->
+            <div class="notif-dropdown-panel" id="indexNotifPanel">
+              <div class="notif-panel-header">
+                <div class="notif-panel-title">
+                  <span>Student Alerts</span>
+                  <span class="badge-role-pill badge-role-student" id="indexUnreadPill">2 New</span>
+                </div>
+                <button class="notif-mark-read-btn" onclick="markAllIndexNotifs()">Mark all read</button>
+              </div>
+              <div class="notif-items-list" id="indexNotifsList">
+                <!-- Loaded via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Setup Tutor ID Button (Top Right Corner) -->
+          <a href="teacher-setup.html" class="header-tutor-btn" title="Setup &amp; Verify Tutor ID">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+              <circle cx="9" cy="10" r="2"></circle>
+              <line x1="15" y1="8" x2="17" y2="8"></line>
+              <line x1="15" y1="12" x2="17" y2="12"></line>
+              <line x1="7" y1="16" x2="17" y2="16"></line>
+            </svg>
+            <span>Setup Tutor ID</span>
+          </a>
+
+          <!-- Student Sign In Pill -->
+          <a href="login.html" class="header-auth-btn" title="Sign In or Switch Student Account">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Sign In</span>
+          </a>
+
+          <!-- User Avatar Pill linking to Student Profile -->
+          <a href="profile.html">
+            <img 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" 
+              alt="Student Avatar" 
+              class="user-avatar-pill" 
+              title="Click to view Student Profile (Aryan Sharma)"
+            >
+          </a>
+        </div>
+      </header>
+
+      <!-- 3. BENTO GRID CONTAINER -->
+      <div class="bento-grid">
+        
+        <!-- Left & Center Column -->
+        <div class="bento-left-column">
+          
+          <!-- Bento Hero Banner Card -->
+          <section class="bento-hero-banner">
+            <div class="hero-banner-content">
+              <span class="hero-banner-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:-1px; margin-right:4px;">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                HomeGuru Verified Mentorship
+              </span>
+              <h2 class="hero-banner-title">Top home tutors in your own city.</h2>
+              <p class="hero-banner-sub">
+                Students don’t have to leave home for Kota. Compare city rankings, watch demo lectures, and study peacefully with family.
+              </p>
+              <a href="search.html" class="hero-banner-cta">
+                <span>Explore City Tutors</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <!-- Interactive Animated 3D Study Desk SVG Illustration -->
+            <div class="hero-banner-graphic" title="Safe study desk at home in Jaipur">
+              <svg class="hero-svg-illustration" viewBox="0 0 180 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="heroDeskGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFFFF"/>
+                    <stop offset="100%" stop-color="#E2EAF2"/>
+                  </linearGradient>
+                  <linearGradient id="heroScreenGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#123C32"/>
+                    <stop offset="100%" stop-color="#1A5446"/>
+                  </linearGradient>
+                  <linearGradient id="heroGoldGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FCD34D"/>
+                    <stop offset="100%" stop-color="#D4A437"/>
+                  </linearGradient>
+                </defs>
+                
+                <!-- Ambient Glow Circle -->
+                <circle cx="90" cy="80" r="54" fill="rgba(212,164,55,0.12)"/>
+                <circle cx="90" cy="80" r="44" fill="#FFFFFF" fill-opacity="0.9"/>
+                
+                <!-- Floating Stars (Twinkle Animation) -->
+                <g class="floating-star-svg" style="transform-origin: 35px 35px;">
+                  <polygon points="35,26 37,32 43,33 38,37 40,43 35,39 30,43 32,37 27,33 33,32" fill="#D4A437"/>
+                </g>
+                <g class="floating-star-svg" style="animation-delay: 1.2s; transform-origin: 148px 45px;">
+                  <polygon points="148,38 150,43 155,44 151,47 152,52 148,49 144,52 145,47 141,44 146,43" fill="#D4A437"/>
+                </g>
+
+                <!-- Study Laptop Terminal Base -->
+                <rect x="52" y="84" width="76" height="42" rx="6" fill="url(#heroDeskGrad)" stroke="#CAD5E2" stroke-width="1.8"/>
+                <rect x="58" y="88" width="64" height="34" rx="4" fill="url(#heroScreenGrad)"/>
+                <!-- Formula and code lines -->
+                <rect x="64" y="94" width="28" height="3" rx="1.5" fill="#34D399"/>
+                <rect x="64" y="100" width="46" height="2.5" rx="1.2" fill="#93C5FD"/>
+                <rect x="64" y="106" width="36" height="2.5" rx="1.2" fill="#FCD34D"/>
+                <rect x="64" y="112" width="22" height="2" rx="1" fill="#FFFFFF" opacity="0.6"/>
+
+                <!-- Laptop Base / Keyboard -->
+                <polygon points="40,130 140,130 134,122 46,122" fill="#E2EAF2" stroke="#CBD5E1" stroke-width="1.5"/>
+                <rect x="78" y="124" width="24" height="4" rx="1" fill="#94A3B8"/>
+
+                <!-- Floating Graduation Cap (Bobs with CSS animation) -->
+                <g class="floating-cap-svg" style="transform-origin: 90px 48px;">
+                  <polygon points="90,28 134,44 90,60 46,44" fill="url(#heroGoldGrad)" stroke="#B88B28" stroke-width="1.8"/>
+                  <path d="M64 52V64C64 71 90 75 90 75C90 75 116 71 116 64V52" fill="#123C32" stroke="#0A241E" stroke-width="1.5"/>
+                  <path d="M134 44V68" stroke="#123C32" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="134" cy="70" r="3" fill="#D4A437"/>
+                  <circle cx="90" cy="44" r="3.5" fill="#123C32"/>
+                </g>
+
+                <!-- Verified Seal Badge -->
+                <g transform="translate(108, 100)">
+                  <rect x="0" y="0" width="68" height="22" rx="11" fill="#10B981"/>
+                  <text x="34" y="15" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif">Verified ID</text>
+                </g>
+              </svg>
+            </div>
+          </section>
+
+          <!-- Bento Lower Row (Top Activities + Tutor Pass Cards) -->
+          <div class="bento-lower-row">
+            
+            <!-- Card 1: Top Rated City Tutors List (with Interactive SVG Radial Rings) -->
+            <div class="dashboard-card">
+              <div class="card-header-row">
+                <h3 class="card-header-title">Top Tutors In Jaipur</h3>
+                <a href="rankings.html" class="card-header-link">City Rankings →</a>
+              </div>
+
+              <div class="activity-list">
+                <!-- Activity 1 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Dr. Rajeshwar">
+                    <div>
+                      <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-1" style="text-decoration:none; color:inherit;">Dr. Rajeshwar Sharma</a></h4>
+                      <p class="activity-meta">Rank 1 Physics • Malviya Nagar</p>
+                    </div>
+                  </div>
+                  <!-- Animated SVG Radial Ring -->
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="98.2% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 2.1;"></circle>
+                    <text x="22" y="27" text-anchor="middle" class="radial-ring-text" style="font-size:0.82rem; font-weight:900;">98%</text>
+                  </svg>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Pooja Rathore">
+                    <div>
+                      <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-4" style="text-decoration:none; color:inherit;">Pooja Rathore, M.Sc</a></h4>
+                      <p class="activity-meta">Rank 2 Biology • Raja Park</p>
+                    </div>
+                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="95.4% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 5.3;"></circle>
+                    <text x="22" y="27" text-anchor="middle" class="radial-ring-text" style="font-size:0.82rem; font-weight:900;">95%</text>
+                  </svg>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Er. Ananya">
+                    <div>
+                      <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-2" style="text-decoration:none; color:inherit;">Er. Ananya Sengupta</a></h4>
+                      <p class="activity-meta">Rank 1 Maths • Delhi NCR</p>
+                    </div>
+                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="97.4% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 3.2;"></circle>
+                    <text x="22" y="27" text-anchor="middle" class="radial-ring-text" style="font-size:0.82rem; font-weight:900;">97%</text>
+                  </svg>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="activity-item">
+                  <div class="activity-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="activity-avatar" alt="Prof Vikas">
+                    <div>
+                      <h4 class="activity-name"><a href="tutor-profile.html?id=tutor-3" style="text-decoration:none; color:inherit;">Prof. Vikas Deshmukh</a></h4>
+                      <p class="activity-meta">Rank 1 Chemistry • Pune</p>
+                    </div>
+                  </div>
+                  <svg class="radial-ring-svg" viewBox="0 0 44 44" title="96.1% City Ranking Score">
+                    <circle class="radial-ring-bg" cx="22" cy="22" r="17"></circle>
+                    <circle class="radial-ring-fill" cx="22" cy="22" r="17" style="stroke-dashoffset: 4.2;"></circle>
+                    <text x="22" y="27" text-anchor="middle" class="radial-ring-text" style="font-size:0.82rem; font-weight:900;">96%</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Dark Sleek Pass Cards (In Forest Green) -->
+            <div class="dark-pass-stack">
+              <!-- Pass Card 1 -->
+              <div class="dark-pass-card">
+                <div class="pass-card-top">
+                  <div>
+                    <span class="pass-card-label">Home Study Pass</span>
+                    <div class="pass-card-balance">₹ 8,670.00</div>
+                  </div>
+                  <span class="pass-card-badge">● Active Balance</span>
+                </div>
+                <div class="pass-card-number">5894 •••• •••• 5624</div>
+                <div class="pass-card-bottom">
+                  <span style="font-size:0.92rem; color:#FDE68A; font-weight:700;">Student: Aryan Sharma</span>
+                  <a href="profile.html" style="font-size:0.92rem; color:#FFF; font-weight:800; text-decoration:none;">My Subjects →</a>
+                </div>
+              </div>
+
+              <!-- Pass Card 2: Hired Teacher & Next Lesson with Live Radar Pulse & Countdown -->
+              <div class="dark-pass-card" style="background: linear-gradient(135deg, #1A443A 0%, #0D2620 100%);">
+                <div class="pass-card-top">
+                  <div>
+                    <span class="pass-card-label">Next Home Session</span>
+                    <div class="pass-card-balance" style="font-size:1.35rem; margin-top:4px;">Tomorrow, 5:30 PM</div>
+                  </div>
+                  <span class="pass-card-badge" style="background: rgba(212,164,55,0.25); color:var(--gold); border:1px solid rgba(212,164,55,0.4); font-size:0.85rem;">Dr. Rajeshwar</span>
+                </div>
+                
+                <div style="display:flex; align-items:center; gap:8px; margin:10px 0 12px 0;">
+                  <span class="radar-live-dot"></span>
+                  <span id="liveCountdownText" style="font-size:0.88rem; font-weight:800; color:#34D399; font-family:monospace;">
+                    Starts in 16h 38m 22s
+                  </span>
+                </div>
+
+                <p style="font-size:0.92rem; color:rgba(250,247,242,0.92); font-weight:600; margin-bottom:14px; line-height:1.45;">
+                  Physics • Wave Optics Numerical Concept Session
+                </p>
+
+                <div class="pass-card-bottom">
+                  <a href="tutor-profile.html?id=tutor-1" style="color:var(--gold); font-size:0.88rem; text-decoration:none; font-weight:800;">Visit Teacher Profile →</a>
+                  <span style="font-size:0.88rem; color:#6EE7B7; font-weight:700;">100% Attendance</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Rail Column (Reports Wave Curve + Wellbeing Donut) -->
+        <div class="bento-right-column">
+          
+          <!-- Reports Spline Curve Chart Card (Fully Interactive SVG) -->
+          <div class="reports-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Mood &amp; Stress Reports</h3>
+              <select class="reports-select" id="timeframeSelect" onchange="handleTimeframeChange(this.value)">
+                <option value="week">Week</option>
+                <option value="month" selected>Month</option>
+                <option value="quarter">Quarter</option>
+              </select>
+            </div>
+
+            <!-- Wave Line SVG Graphic with Tooltip Pill -->
+            <div class="chart-container">
+              <div class="chart-tooltip-badge" id="chartTooltip">Mar: Stress: Low (94%)</div>
+              <svg class="chart-svg" viewBox="0 0 300 120" fill="none" id="chartSvg">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--green-primary)"></stop>
+                    <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <path id="curveArea" d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20 L 300 120 L 0 120 Z" fill="url(#chartGrad)" opacity="0.18"></path>
+                <path id="curveLine" class="chart-curve-animated" d="M0 80 Q 40 10, 80 50 T 160 30 T 240 85 T 300 20" stroke="var(--green-primary)" stroke-width="3" stroke-linecap="round"></path>
+                <!-- Interactive Tracker Dot -->
+                <circle id="trackerDot" cx="185" cy="30" r="5" fill="#FFFFFF" stroke="var(--green-primary)" stroke-width="3.2" style="transition:all 280ms cubic-bezier(0.16, 1, 0.3, 1);"></circle>
+                <circle id="peakDot" cx="300" cy="20" r="4" fill="var(--gold)" stroke="#FFFFFF" stroke-width="2"></circle>
+              </svg>
+
+              <!-- Month / Period Selector Pills -->
+              <div class="chart-months-row" id="timeframePills">
+                <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 80, 'Dec: 76% Baseline Stress', this)">Dec</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(1, 75, 52, 'Jan: 82% Concept Boost', this)">Jan</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(2, 130, 42, 'Feb: 89% Doubts Cleared', this)">Feb</span>
+                <span class="chart-month-btn active" onclick="selectTimePoint(3, 185, 30, 'Mar: Stress: Low (94%)', this)">Mar</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(4, 240, 55, 'Apr: 96% Calm &amp; Focused', this)">Apr</span>
+                <span class="chart-month-btn" onclick="selectTimePoint(5, 295, 20, 'May: 98% Peak Confidence', this)">May</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donut Breakdown Card (Interactive Wellbeing Index) -->
+          <div class="donut-card">
+            <div class="card-header-row">
+              <h3 class="card-header-title">Wellbeing Index</h3>
+              <button onclick="openCheckinModal()" class="card-header-link" style="background:none; border:none; cursor:pointer;">+ Check-in →</button>
+            </div>
+
+            <!-- Donut SVG Ring with Live Hover Tooltips -->
+            <div class="donut-graphic-wrap">
+              <svg class="donut-circle-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="38" stroke="#EAE5D9" stroke-width="9" fill="none"></circle>
+                <!-- Green Progress Segment -->
+                <circle 
+                  id="donutGaugeGreen"
+                  class="donut-circle-animated"
+                  cx="50" 
+                  cy="50" 
+                  r="38" 
+                  stroke="var(--green-primary)" 
+                  stroke-width="9" 
+                  stroke-dasharray="238" 
+                  stroke-dashoffset="36" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  transform="rotate(-90 50 50)"
+                  style="transition: stroke-dashoffset 600ms ease;"
+                ></circle>
+                <!-- Gold Accent Segment -->
+                <circle 
+                  id="donutGaugeGold"
+                  class="donut-circle-animated"
+                  cx="50" 
+                  cy="50" 
+                  r="38" 
+                  stroke="var(--gold)" 
+                  stroke-width="9" 
+                  stroke-dasharray="238" 
+                  stroke-dashoffset="200" 
+                  stroke-linecap="round" 
+                  fill="none" 
+                  transform="rotate(60 50 50)"
+                ></circle>
+                <text id="donutVal" x="50" y="52" text-anchor="middle" class="donut-percentage-text" style="font-size:1.85rem; fill:var(--green-primary); font-weight:800;">85%</text>
+                <text id="donutSub" x="50" y="67" text-anchor="middle" style="font-size:0.75rem; fill:#475569; font-weight:800;">Overall Calm</text>
+              </svg>
+            </div>
+
+            <!-- Breakdown Interactive Rows (Hover updates gauge) -->
+            <div class="breakdown-list">
+              <div class="breakdown-row" onmouseenter="highlightDonut('98%', 'Peace of Mind', 15)" onmouseleave="resetDonut()">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:var(--green-primary);"></span>
+                  Family Peace of Mind
+                </span>
+                <span class="breakdown-val">98%</span>
+              </div>
+
+              <div class="breakdown-row" onmouseenter="highlightDonut('88%', 'Stress-Free', 36)" onmouseleave="resetDonut()">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:var(--gold);"></span>
+                  Stress-Free Atmosphere
+                </span>
+                <span class="breakdown-val">88%</span>
+              </div>
+
+              <div class="breakdown-row" onmouseenter="highlightDonut('+24%', 'Score Growth', 55)" onmouseleave="resetDonut()">
+                <span class="breakdown-label">
+                  <span class="breakdown-dot" style="background:#10B981;"></span>
+                  Board / JEE Score Gains
+                </span>
+                <span class="breakdown-val">+24%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive Quick Mood Check-In Modal -->
+  <div id="checkinModal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#FFFFFF; border-radius:18px; max-width:440px; width:100%; padding:28px; box-shadow:0 16px 40px rgba(0,0,0,0.18); text-align:center; position:relative; border:1px solid var(--border-light);">
+      <button onclick="closeCheckinModal()" style="position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%; background:#F8F6F1; border:1px solid var(--border-light); font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-muted);" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
+      <div style="width:48px; height:48px; border-radius:14px; background:rgba(16,63,52,0.08); margin:0 auto 12px auto; display:flex; align-items:center; justify-content:center; color:var(--green-primary);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+      <h3 style="font-size:1.25rem; font-weight:800; color:var(--green-primary); margin-bottom:6px;">
+        Daily Wellbeing Check-In
+      </h3>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:20px;">
+        Hi Aryan, how is your study mindset feeling today in Jaipur?
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-bottom:20px;">
+        <button onclick="recordMood(96, 'Energetic & Ready')" style="padding:14px; border-radius:12px; border:1.5px solid var(--border-light); background:#FFFFFF; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="display:flex; justify-content:center; margin-bottom:6px; color:#D9A72E;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Energetic</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Ready to solve</span>
+        </button>
+
+        <button onclick="recordMood(90, 'Calm & Focused')" style="padding:14px; border-radius:12px; border:1.5px solid var(--border-light); background:#FFFFFF; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="display:flex; justify-content:center; margin-bottom:6px; color:#10B981;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Calm &amp; Steady</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Paced revision</span>
+        </button>
+
+        <button onclick="recordMood(75, 'A bit tired')" style="padding:14px; border-radius:12px; border:1.5px solid var(--border-light); background:#FFFFFF; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="display:flex; justify-content:center; margin-bottom:6px; color:#64748B;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <strong style="font-size:0.82rem; color:var(--green-primary); display:block;">Mild Fatigue</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Need short break</span>
+        </button>
+
+        <button onclick="recordMood(60, 'High Exam Stress')" style="padding:14px; border-radius:12px; border:1.5px solid var(--border-light); background:#FFFFFF; cursor:pointer; text-align:center; transition:all 180ms ease;">
+          <div style="display:flex; justify-content:center; margin-bottom:6px; color:#EF4444;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <strong style="font-size:0.82rem; color:#EF4444; display:block;">Exam Anxiety</strong>
+          <span style="font-size:0.7rem; color:var(--text-muted);">Need mentor chat</span>
+        </button>
+      </div>
+
+      <div style="font-size:0.75rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; gap:6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--green-primary); flex-shrink:0;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>If stress persists across consecutive days, HomeGuru alerts family and counselors confidentially.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    // Live Ticking Countdown for Tomorrow's Session
+    function updateCountdown() {
+      const now = new Date();
+      const target = new Date();
+      target.setDate(target.getDate() + 1);
+      target.setHours(17, 30, 0, 0); // Tomorrow at 5:30 PM
+
+      const diff = target - now;
+      if (diff <= 0) {
+        document.getElementById('liveCountdownText').innerText = 'Session Starting Now!';
+        return;
+      }
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const formatted = 'Starts in ' + hours + 'h ' + mins + 'm ' + (secs < 10 ? '0' : '') + secs + 's';
+      const elem = document.getElementById('liveCountdownText');
+      if (elem) elem.innerText = formatted;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Interactive Spline Curve Points
+    function selectTimePoint(idx, cx, cy, label, btnElem) {
+      document.getElementById('trackerDot').setAttribute('cx', cx);
+      document.getElementById('trackerDot').setAttribute('cy', cy);
+      document.getElementById('chartTooltip').innerText = label;
+
+      document.querySelectorAll('.chart-month-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+    }
+
+    function handleTimeframeChange(val) {
+      const pillsContainer = document.getElementById('timeframePills');
+      const line = document.getElementById('curveLine');
+      const area = document.getElementById('curveArea');
+
+      // Trigger re-drawing animation
+      line.classList.remove('chart-curve-animated');
+      void line.offsetWidth; // trigger reflow
+      line.classList.add('chart-curve-animated');
+
+      if (val === 'week') {
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 75, 'Mon: 80% Focused', this)">Mon</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 65, 45, 'Tue: 92% Great Class', this)">Tue</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(2, 110, 30, 'Wed: 95% High Confidence', this)">Wed</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(3, 160, 50, 'Thu: 88% Normal Revision', this)">Thu</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(4, 210, 25, 'Fri: 96% Physics Demo', this)">Fri</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(5, 260, 20, 'Sat: 99% Weekend Rest', this)">Sat</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(6, 295, 22, 'Sun: 97% Recharged', this)">Sun</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Wed: 95% High Confidence';
+        document.getElementById('trackerDot').setAttribute('cx', '110');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      } else if (val === 'quarter') {
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 40, 80, 'Q1: 75% Initial Setup', this)">Q1</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 120, 50, 'Q2: 86% Tutors Hired', this)">Q2</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(2, 200, 30, 'Q3: 94% Consistent Scores', this)">Q3</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(3, 280, 20, 'Q4: 98% Finals Ready', this)">Q4</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Q3: 94% Consistent Scores';
+        document.getElementById('trackerDot').setAttribute('cx', '200');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      } else {
+        // Month default
+        pillsContainer.innerHTML = `
+          <span class="chart-month-btn" onclick="selectTimePoint(0, 20, 80, 'Dec: 76% Baseline Stress', this)">Dec</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(1, 75, 52, 'Jan: 82% Concept Boost', this)">Jan</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(2, 130, 42, 'Feb: 89% Doubts Cleared', this)">Feb</span>
+          <span class="chart-month-btn active" onclick="selectTimePoint(3, 185, 30, 'Mar: Stress: Low (94%)', this)">Mar</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(4, 240, 55, 'Apr: 96% Calm & Focused', this)">Apr</span>
+          <span class="chart-month-btn" onclick="selectTimePoint(5, 295, 20, 'May: 98% Peak Confidence', this)">May</span>
+        `;
+        document.getElementById('chartTooltip').innerText = 'Mar: Stress: Low (94%)';
+        document.getElementById('trackerDot').setAttribute('cx', '185');
+        document.getElementById('trackerDot').setAttribute('cy', '30');
+      }
+    }
+
+    // Donut Gauge Hover Inspections
+    function highlightDonut(val, sub, offset) {
+      document.getElementById('donutVal').innerText = val;
+      document.getElementById('donutSub').innerText = sub;
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = offset;
+    }
+
+    function resetDonut() {
+      document.getElementById('donutVal').innerText = '85%';
+      document.getElementById('donutSub').innerText = 'Overall Calm';
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = '36';
+    }
+
+    // Quick Mood Check-In Modal Functions
+    function openCheckinModal() {
+      document.getElementById('checkinModal').style.display = 'flex';
+    }
+
+    function closeCheckinModal() {
+      document.getElementById('checkinModal').style.display = 'none';
+    }
+
+    function recordMood(score, label) {
+      document.getElementById('donutVal').innerText = score + '%';
+      document.getElementById('donutSub').innerText = 'Logged Today!';
+      document.getElementById('donutGaugeGreen').style.strokeDashoffset = (238 - (score / 100) * 238);
+      
+      closeCheckinModal();
+      alert('Mood check-in recorded: ' + label + ' (' + score + '%). Your parents and verified mentor can see your calm progress.');
+    }
+
+    // Index Notifications
+    function toggleIndexNotif() {
+      document.getElementById('indexNotifPanel').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrap = document.querySelector('.notif-dropdown-wrapper');
+      if (wrap && !wrap.contains(e.target)) {
+        const p = document.getElementById('indexNotifPanel');
+        if (p) p.classList.remove('open');
+      }
+    });
+
+    function loadIndexNotifs() {
+      if (!window.HomeGuruFirebase) return;
+      const notifs = window.HomeGuruFirebase.getNotifications('student_aryan');
+      const unread = notifs.filter(n => !n.isRead);
+
+      const countEl = document.getElementById('indexNotifCount');
+      const pillEl = document.getElementById('indexUnreadPill');
+      const listEl = document.getElementById('indexNotifsList');
+
+      if (countEl) countEl.innerText = unread.length;
+      if (pillEl) pillEl.innerText = unread.length + ' New';
+
+      if (listEl) {
+        if (notifs.length === 0) {
+          listEl.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">No new notifications.</div>';
+          return;
+        }
+
+        listEl.innerHTML = notifs.map(n => `
+          <div class="notif-item ${n.isRead ? '' : 'unread'}" onclick="markIndexNotif('${n.id}')">
+            <div class="notif-icon-circle ${n.type}">
+              ${n.type === 'report' ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>' : 
+                n.type === 'exam_result' ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>' : 
+                n.type === 'syllabus' ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>' : 
+                '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>'}
+            </div>
+            <div class="notif-content-wrap">
+              <div class="notif-item-title">${n.title}</div>
+              <div class="notif-item-msg">${n.message}</div>
+              <div class="notif-item-time">${new Date(n.createdAt).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' })}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function markIndexNotif(id) {
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.markNotificationRead(id);
+        loadIndexNotifs();
+      }
+    }
+
+    function markAllIndexNotifs() {
+      if (window.HomeGuruFirebase) {
+        window.HomeGuruFirebase.markAllNotificationsRead('student_aryan');
+        loadIndexNotifs();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadIndexNotifs();
+    });
+  </script>
+  <!-- Firebase Compatibility & HomeGuru Service -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="shared-data.js"></script>
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Profile | HomeGuru</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    /* Dedicated Tutor Profile Styles */
+    .tutor-hero-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 36px 40px;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .tutor-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .tutor-hero-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .tutor-hero-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 28px;
+      object-fit: cover;
+      border: 3.5px solid var(--gold);
+      box-shadow: 0 10px 25px rgba(18, 60, 50, 0.15);
+    }
+
+    .tutor-hero-verified-seal {
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      width: 30px;
+      height: 30px;
+      background: #10B981;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 900;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .tutor-hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .tutor-hero-meta {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .tutor-hero-quote {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-style: italic;
+      line-height: 1.5;
+      background: rgba(18, 60, 50, 0.03);
+      padding: 10px 16px;
+      border-radius: 10px;
+      border-left: 3.5px solid var(--gold);
+    }
+
+    .tutor-hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      min-width: 240px;
+    }
+
+    .tutor-hero-rate-box {
+      text-align: right;
+    }
+
+    .tutor-hero-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      letter-spacing: -0.03em;
+    }
+
+    .tutor-hero-rate-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: block;
+    }
+
+    .tutor-cta-btn-primary {
+      padding: 14px 28px;
+      background: var(--green-primary);
+      color: #FFFFFF;
+      font-size: 0.92rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(18, 60, 50, 0.25);
+      transition: all 180ms ease;
+    }
+
+    .tutor-cta-btn-primary:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(18, 60, 50, 0.35);
+    }
+
+    .tutor-cta-btn-secondary {
+      padding: 12px 22px;
+      background: #FFFFFF;
+      color: var(--green-primary);
+      font-size: 0.88rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid var(--border-light);
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+
+    .tutor-cta-btn-secondary:hover {
+      background: #FAF7F2;
+      border-color: var(--green-primary);
+    }
+
+    /* 4-Stat Bento Bar */
+    .tutor-quick-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .stat-bento-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .stat-bento-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .stat-bento-val {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      line-height: 1.2;
+    }
+
+    .stat-bento-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* 2-Column Details Layout */
+    .profile-details-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .details-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 32px 34px;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 30px;
+    }
+
+    .details-card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      letter-spacing: -0.02em;
+    }
+
+    /* 4-Factor Score Visualizer */
+    .score-factor-row {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(18, 60, 50, 0.06);
+    }
+
+    .score-factor-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .score-factor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .score-factor-name {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .score-factor-val {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--green-primary);
+    }
+
+    .score-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: #EFEBE1;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 1s ease-in-out;
+    }
+
+    .score-factor-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* Degree list */
+    .degree-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #FAF7F2;
+      border: 1px solid rgba(18, 60, 50, 0.06);
+      margin-bottom: 10px;
+    }
+
+    .degree-check {
+      color: #10B981;
+      font-weight: 900;
+      font-size: 1rem;
+      margin-top: 1px;
+    }
+
+    .degree-text {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    /* Timings slot chips */
+    .slot-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #FAF7F2;
+      border: 1px solid rgba(18, 60, 50, 0.08);
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--green-primary);
+    }
+
+    .slot-chip.open {
+      border-color: #10B981;
+      background: rgba(16, 185, 129, 0.08);
+      color: #065F46;
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+      background: #FAF7F2;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(18, 60, 50, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .testimonial-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-author {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--green-primary);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.86rem;
+      color: var(--text-body);
+      line-height: 1.55;
+      font-style: italic;
+    }
+
+    .back-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background: #FFFFFF;
+      color: var(--green-primary);
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 24px;
+      transition: all 180ms ease;
+    }
+
+    .back-btn-pill:hover {
+      background: var(--green-primary);
+      color: #FFFFFF;
+      border-color: var(--green-primary);
+      transform: translateX(-3px);
+    }
+
+    @media (max-width: 1024px) {
+      .profile-details-grid {
+        grid-template-columns: 1fr;
+      }
+      .tutor-quick-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tutor-hero-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .tutor-hero-right {
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tutor-quick-stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .tutor-hero-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="search.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <a href="profile.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <!-- Student Sign In / Auth -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Student Sign In</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h4 class="promo-title">Living With Family</h4>
+        <p class="promo-sub">Zero isolation anxiety. Study at your own desk in your city.</p>
+        <a href="search.html" class="promo-btn">Hire Local Tutor →</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header Navigation -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <a href="search.html" class="back-btn-pill">
+            <span>← Back to Tutors Search</span>
+          </a>
+          <h1 id="pageHeading" style="font-size:1.8rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.03em;">
+            Verified Educator Profile
+          </h1>
+          <p id="pageSubHeading" style="font-size:0.86rem; color:var(--text-muted);">
+            Comprehensive academic track record, student reviews, and city ranking proof.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-pill-input" placeholder="Search other mentors..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)">
+          </div>
+
+          <!-- Setup Tutor ID Button (Top Right Corner) -->
+          <a href="teacher-setup.html" class="header-tutor-btn" title="Setup &amp; Verify Tutor ID">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+            <span>🪪 Setup Tutor ID</span>
+          </a>
+
+          <!-- Student Sign In / Switch Account -->
+          <a href="login.html" class="header-auth-btn" title="Sign In or Switch Student Account">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Sign In</span>
+          </a>
+
+          <a href="profile.html" title="Go to Student Profile">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="Student Profile">
+          </a>
+        </div>
+      </header>
+
+      <!-- HERO BANNER -->
+      <section class="tutor-hero-card">
+        <div class="tutor-hero-left">
+          <div class="tutor-hero-avatar-wrap">
+            <img id="tutorAvatar" src="" class="tutor-hero-avatar" alt="Tutor Portrait">
+            <div class="tutor-hero-verified-seal" title="100% ID & Degree Verified by HomeGuru">✓</div>
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap;">
+              <span id="tutorBadge" style="background:var(--gold-soft); color:var(--gold-hover); font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:9999px; border:1px solid var(--gold-border);"></span>
+              <span style="background:rgba(16,185,129,0.1); color:#065F46; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:6px; border:1px solid rgba(16,185,129,0.2);">
+                🧠 Mental Wellbeing Certified
+              </span>
+            </div>
+            <h2 id="tutorName" class="tutor-hero-title"></h2>
+            <p id="tutorMeta" class="tutor-hero-meta"></p>
+            <div id="tutorTagline" class="tutor-hero-quote"></div>
+          </div>
+        </div>
+
+        <div class="tutor-hero-right">
+          <div class="tutor-hero-rate-box">
+            <span id="tutorRate" class="tutor-hero-price"></span>
+            <span class="tutor-hero-rate-sub">per 1-hour personalized home lesson</span>
+          </div>
+          <button onclick="bookTutorDemo(currentTutor.id)" class="tutor-cta-btn-primary">
+            <span>Book Free 1-on-1 Demo →</span>
+          </button>
+          <button onclick="openWhatsAppChat()" class="tutor-cta-btn-secondary">
+            <span>💬 Chat on WhatsApp</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4-STAT BENTO BAR -->
+      <section class="tutor-quick-stats-grid">
+        <div class="stat-bento-card">
+          <div class="stat-bento-icon" style="background:rgba(18,60,50,0.08); color:var(--green-primary);">🎓</div>
+          <div>
+            <div id="statExp" class="stat-bento-val"></div>
+            <div class="stat-bento-lbl">Teaching Experience</div>
+          </div>
+        </div>
+
+        <div class="stat-bento-card">
+          <div class="stat-bento-icon" style="background:rgba(212,164,55,0.15); color:var(--gold-hover);">⭐</div>
+          <div>
+            <div id="statScore" class="stat-bento-val"></div>
+            <div class="stat-bento-lbl">City Rank Score (Jaipur)</div>
+          </div>
+        </div>
+
+        <div class="stat-bento-card">
+          <div class="stat-bento-icon" style="background:rgba(37,99,235,0.1); color:#2563EB;">👨‍👩‍👧</div>
+          <div>
+            <div id="statStudents" class="stat-bento-val"></div>
+            <div class="stat-bento-lbl">Local Families Mentored</div>
+          </div>
+        </div>
+
+        <div class="stat-bento-card">
+          <div class="stat-bento-icon" style="background:rgba(16,185,129,0.12); color:#059669;">🛡️</div>
+          <div>
+            <div class="stat-bento-val">100%</div>
+            <div class="stat-bento-lbl">Police Verified ID</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-COLUMN DETAILS BENTO -->
+      <div class="profile-details-grid">
+        
+        <!-- LEFT COLUMN: Formula Breakdown, Philosophy & Video -->
+        <div>
+          
+          <!-- Mathematical 4-Factor City Ranking Proof Card -->
+          <div class="details-card">
+            <div class="details-card-title">
+              <span>Transparent 4-Factor Ranking Formula</span>
+              <span id="rankBadgePill" style="font-size:0.78rem; font-weight:800; background:var(--gold-soft); color:var(--gold-hover); padding:3px 10px; border-radius:6px;"></span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-body); margin-bottom:20px; line-height:1.5;">
+              Calculated automatically from verified lessons. Only reviews from families who completed real home sessions count.
+            </p>
+
+            <!-- Factor 1: Student Rating (35%) -->
+            <div class="score-factor-row">
+              <div class="score-factor-header">
+                <span class="score-factor-name">
+                  <span style="color:#2563EB;">●</span> Student Rating (35% Weight)
+                </span>
+                <span id="fScoreStudent" class="score-factor-val"></span>
+              </div>
+              <div class="score-bar-bg">
+                <div id="barStudent" class="score-bar-fill" style="background:#2563EB; width:0%;"></div>
+              </div>
+              <div class="score-factor-desc">Evaluates concept clarity, patience, anti-shaming behavior, and psychological safety during doubts.</div>
+            </div>
+
+            <!-- Factor 2: Parent Trust Rating (25%) -->
+            <div class="score-factor-row">
+              <div class="score-factor-header">
+                <span class="score-factor-name">
+                  <span style="color:var(--green-primary);">●</span> Parent Trust &amp; Safety Rating (25% Weight)
+                </span>
+                <span id="fScoreParent" class="score-factor-val"></span>
+              </div>
+              <div class="score-bar-bg">
+                <div id="barParent" class="score-bar-fill" style="background:var(--green-primary); width:0%;"></div>
+              </div>
+              <div class="score-factor-desc">Evaluates punctuality, respectful home conduct, transparent feedback, and zero toxic pressure.</div>
+            </div>
+
+            <!-- Factor 3: Regularity & Attendance (20%) -->
+            <div class="score-factor-row">
+              <div class="score-factor-header">
+                <span class="score-factor-name">
+                  <span style="color:#7C3AED;">●</span> Regularity &amp; Class Reliability (20% Weight)
+                </span>
+                <span id="fScoreAttendance" class="score-factor-val"></span>
+              </div>
+              <div class="score-bar-bg">
+                <div id="barAttendance" class="score-bar-fill" style="background:#7C3AED; width:0%;"></div>
+              </div>
+              <div class="score-factor-desc">Monitors verified biometric check-ins. Educators who cancel without 24h notice drop down the leaderboard.</div>
+            </div>
+
+            <!-- Factor 4: Academic Improvement (20%) -->
+            <div class="score-factor-row">
+              <div class="score-factor-header">
+                <span class="score-factor-name">
+                  <span style="color:var(--gold-hover);">●</span> Student Result Growth (20% Weight)
+                </span>
+                <span id="fScoreImprovement" class="score-factor-val"></span>
+              </div>
+              <div class="score-bar-bg">
+                <div id="barImprovement" class="score-bar-fill" style="background:var(--gold); width:0%;"></div>
+              </div>
+              <div class="score-factor-desc">Verified improvement in school terminal exams, mock tests, and competitive entrance test marks.</div>
+            </div>
+          </div>
+
+          <!-- Teaching Philosophy & Mental Health Approach -->
+          <div class="details-card">
+            <h3 class="details-card-title">Teaching Philosophy &amp; Anti-Burnout Approach</h3>
+            <p id="tutorAboutText" style="font-size:0.92rem; color:var(--text-body); line-height:1.7; margin-bottom:18px;"></p>
+            
+            <div style="background:rgba(16,185,129,0.08); border-radius:14px; padding:18px; border:1px solid rgba(16,185,129,0.2);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                <span style="font-size:1.2rem;">🛡️</span>
+                <strong style="color:#065F46; font-size:0.95rem;">Wellbeing Trained Educator</strong>
+              </div>
+              <p style="font-size:0.85rem; color:#065F46; line-height:1.55; margin:0;">
+                Trained to spot academic anxiety, test panic, and cognitive overload. Never compares siblings or peers, ensuring the home remains an encouraging sanctuary.
+              </p>
+            </div>
+          </div>
+
+          <!-- Video Demo Lesson Preview -->
+          <div class="details-card">
+            <div class="details-card-title">
+              <span>Interactive 1-on-1 Concept Demo</span>
+              <span id="videoDuration" style="font-size:0.75rem; color:var(--text-muted); font-weight:700;"></span>
+            </div>
+            <div style="position:relative; border-radius:18px; overflow:hidden; box-shadow:var(--shadow-card); cursor:pointer;" onclick="alert('Playing 3-minute concept teaching sample: Wave Optics Concept Cleared at Student Study Desk')">
+              <img id="videoThumb" src="" style="width:100%; height:260px; object-fit:cover; display:block;" alt="Lesson Preview">
+              <div style="position:absolute; inset:0; background:rgba(0,0,0,0.35); display:flex; align-items:center; justify-content:center; gap:12px;">
+                <div style="width:64px; height:64px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; color:#FFF; font-size:1.8rem; padding-left:4px; box-shadow:0 8px 24px rgba(0,0,0,0.3);">
+                  ▶
+                </div>
+              </div>
+              <div style="position:absolute; bottom:14px; left:16px; color:#FFFFFF; font-size:0.85rem; font-weight:700; text-shadow:0 2px 4px rgba(0,0,0,0.6);">
+                Watch Dr. Rajeshwar Explain Tough Derivations In 3 Mins
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Credentials, Timings, Areas & Reviews -->
+        <div>
+          
+          <!-- Verified Degrees & Clearance -->
+          <div class="details-card">
+            <h3 class="details-card-title">Verified Degrees &amp; Police Verification</h3>
+            <div id="degreesList"></div>
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:12px;">
+              ✓ Government Aadhaar and Criminal Background Verification checks completed on file.
+            </p>
+          </div>
+
+          <!-- Available Weekly Time Slots -->
+          <div class="details-card">
+            <h3 class="details-card-title">Available Weekly Home Slots</h3>
+            <div id="slotsList"></div>
+            <button onclick="bookTutorDemo(currentTutor.id)" style="width:100%; margin-top:12px; padding:11px; background:var(--green-primary); color:#FFF; border-radius:10px; font-weight:800; font-size:0.85rem; border:none; cursor:pointer;">
+              Reserve an Open Slot →
+            </button>
+          </div>
+
+          <!-- Areas Covered for Home Visits -->
+          <div class="details-card">
+            <h3 class="details-card-title">Home Visit Neighborhoods</h3>
+            <div id="areasList" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;"></div>
+            <p style="font-size:0.78rem; color:var(--text-muted);">
+              Tutor travels to your residence in these localities with physical study notes and problem sets.
+            </p>
+          </div>
+
+          <!-- Real Parent & Student Testimonials -->
+          <div class="details-card">
+            <h3 class="details-card-title">Verified Parent &amp; Student Feedback</h3>
+            <div id="testimonialsList"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    let currentTutor = null;
+
+    function loadTutorProfile() {
+      const params = new URLSearchParams(window.location.search);
+      const tutorId = params.get('id') || 'tutor-1';
+      currentTutor = getTutorById(tutorId) || TUTORS_DATABASE[0];
+
+      // Document title
+      document.title = currentTutor.name + ' | HomeGuru Verified Mentor';
+
+      // Hero Elements
+      document.getElementById('tutorAvatar').src = currentTutor.avatar;
+      document.getElementById('tutorBadge').innerText = '👑 ' + currentTutor.badgeTitle;
+      document.getElementById('tutorName').innerText = currentTutor.name;
+      document.getElementById('tutorMeta').innerText = currentTutor.experienceYears + ' Yrs Experience • ' + currentTutor.subjects.join(' • ') + ' • ' + currentTutor.classes.join(', ');
+      document.getElementById('tutorTagline').innerText = '"' + currentTutor.tagline + '"';
+      document.getElementById('tutorRate').innerText = '₹' + currentTutor.hourlyRate;
+
+      // Quick Stats
+      document.getElementById('statExp').innerText = currentTutor.experienceYears + '+ Yrs';
+      document.getElementById('statScore').innerText = currentTutor.ratingBreakdown.compositeScore + ' / 100';
+      document.getElementById('statStudents').innerText = currentTutor.studentsCount + '+ Students';
+
+      // 4-Factor Breakdown
+      document.getElementById('rankBadgePill').innerText = '#' + currentTutor.cityRank + ' in ' + currentTutor.cityName;
+      document.getElementById('fScoreStudent').innerText = '⭐ ' + currentTutor.ratingBreakdown.studentScore + ' / 5.0';
+      document.getElementById('fScoreParent').innerText = '⭐ ' + currentTutor.ratingBreakdown.parentScore + ' / 5.0';
+      document.getElementById('fScoreAttendance').innerText = currentTutor.ratingBreakdown.attendance + '% Regular';
+      document.getElementById('fScoreImprovement').innerText = '+' + currentTutor.ratingBreakdown.improvement + '% Grade Lift';
+
+      // Animate progress bars
+      setTimeout(() => {
+        document.getElementById('barStudent').style.width = ((currentTutor.ratingBreakdown.studentScore / 5) * 100) + '%';
+        document.getElementById('barParent').style.width = ((currentTutor.ratingBreakdown.parentScore / 5) * 100) + '%';
+        document.getElementById('barAttendance').style.width = currentTutor.ratingBreakdown.attendance + '%';
+        document.getElementById('barImprovement').style.width = currentTutor.ratingBreakdown.improvement + '%';
+      }, 150);
+
+      // About Text
+      document.getElementById('tutorAboutText').innerText = currentTutor.about;
+
+      // Video preview
+      document.getElementById('videoThumb').src = currentTutor.videoThumbnail;
+      document.getElementById('videoDuration').innerText = 'Demo Lesson (' + currentTutor.demoVideoDuration + ')';
+
+      // Degrees
+      document.getElementById('degreesList').innerHTML = currentTutor.degrees.map(d => `
+        <div class="degree-item">
+          <span class="degree-check">✓</span>
+          <span class="degree-text">${d}</span>
+        </div>
+      `).join('');
+
+      // Timing Slots
+      document.getElementById('slotsList').innerHTML = currentTutor.timingSlots.map((slot, idx) => `
+        <div class="slot-chip ${idx === 1 ? 'open' : ''}">
+          <span>🕒</span>
+          <span>${slot}</span>
+          ${idx === 1 ? '<span style="margin-left:auto; font-size:0.7rem; background:#10B981; color:#FFF; padding:2px 8px; border-radius:9999px;">1 Slot Available</span>' : '<span style="margin-left:auto; font-size:0.7rem; color:var(--text-muted);">Active</span>'}
+        </div>
+      `).join('');
+
+      // Areas
+      document.getElementById('areasList').innerHTML = currentTutor.areas.map(a => `
+        <span style="background:#FAF7F2; border:1px solid rgba(18,60,50,0.1); color:var(--green-primary); font-size:0.8rem; font-weight:700; padding:6px 14px; border-radius:9999px;">
+          📍 ${a}
+        </span>
+      `).join('');
+
+      // Testimonials
+      document.getElementById('testimonialsList').innerHTML = currentTutor.featuredTestimonials.map(t => `
+        <div class="testimonial-card">
+          <div class="testimonial-top">
+            <span class="testimonial-author">${t.author}</span>
+            <span class="testimonial-stars">${'★'.repeat(t.rating)}</span>
+          </div>
+          <p class="testimonial-text">"${t.text}"</p>
+        </div>
+      `).join('');
+    }
+
+    function openWhatsAppChat() {
+      alert('Opening WhatsApp chat with ' + currentTutor.name + ' for parent consultation & doubt clearing: +91 98290 12345');
+    }
+
+    window.addEventListener('DOMContentLoaded', loadTutorProfile);
+  </script>
+</body>
+</html>
+

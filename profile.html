@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile | HomeGuru</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. LEFT SIDEBAR -->
+    <aside class="app-sidebar">
+      <a href="index.html" class="sidebar-logo" aria-label="HomeGuru Dashboard">
+        <div class="logo-mark">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <!-- House + Graduation Cap stylized icon -->
+            <path d="M18 3L4 14V31C4 32.1 4.9 33 6 33H30C31.1 33 32 32.1 32 31V14L18 3Z" stroke="#123C32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 10L6 17.5L18 25L30 17.5L18 10Z" fill="#D4A437" fill-opacity="0.3" stroke="#D4A437" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M30 18.5V26.5" stroke="#D4A437" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="17.5" r="2.5" fill="#D4A437"/>
+          </svg>
+        </div>
+        <span class="logo-brand-text">HomeGuru</span>
+      </a>
+
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="2"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="2"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="search.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Find Tutors</span>
+        </a>
+
+        <!-- Teacher Portal -->
+        <a href="teacher-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>Teacher Portal</span>
+        </a>
+
+        <!-- Family Portal -->
+        <a href="parent-portal.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Family Portal</span>
+        </a>
+
+        <a href="rankings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+          <span>City Rankings</span>
+        </a>
+
+        <!-- Active Student Profile Pill -->
+        <a href="profile.html" class="nav-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Student Profile</span>
+        </a>
+
+        <!-- Student Sign In / Auth -->
+        <a href="login.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+            <polyline points="10 17 15 12 10 7"></polyline>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+          </svg>
+          <span>Student Sign In</span>
+        </a>
+
+        <a href="wellbeing.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Wellbeing Shield</span>
+        </a>
+
+        <a href="#settings" onclick="alert('Student Account Settings')" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-promo-card">
+        <div class="promo-illustration">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h4 class="promo-title">Living With Family</h4>
+        <p class="promo-sub">Zero isolation anxiety. Study at your own desk in Jaipur.</p>
+        <a href="search.html" class="promo-btn">Hire Local Tutor →</a>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN WORKSPACE -->
+    <main class="app-main">
+      
+      <!-- Top Header -->
+      <header class="app-header">
+        <div class="header-greeting">
+          <h1>Student Profile Overview</h1>
+          <p>Manage your enrolled subjects, learning progress, and personal home educators.</p>
+        </div>
+
+        <div class="header-actions">
+          <div class="search-pill-wrapper">
+            <svg class="search-pill-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-pill-input" placeholder="Search tutors or subjects..." onkeydown="if(event.key === 'Enter') window.location.href='search.html?q=' + encodeURIComponent(this.value)">
+          </div>
+
+          <button class="icon-pill-btn" onclick="alert('Notification: Upcoming Physics session tomorrow at 5:30 PM with Dr. Rajeshwar Sharma.')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="badge-dot"></span>
+          </button>
+
+          <!-- Setup Tutor ID Button (Top Right Corner) -->
+          <a href="teacher-setup.html" class="header-tutor-btn" title="Setup &amp; Verify Tutor ID">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+            <span>Setup Tutor ID</span>
+          </a>
+
+          <!-- Student Sign In / Switch Account -->
+          <a href="login.html" class="header-auth-btn" title="Sign In or Switch Student Account">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+              <polyline points="10 17 15 12 10 7"></polyline>
+              <line x1="15" y1="12" x2="3" y2="12"></line>
+            </svg>
+            <span>Sign In</span>
+          </a>
+
+          <a href="profile.html">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="user-avatar-pill" alt="Student Avatar">
+          </a>
+        </div>
+      </header>
+
+      <!-- Student Banner Card (Forest Green & Gold Theme) -->
+      <section class="student-hero-banner">
+        <div class="student-info-flex">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="student-large-avatar" alt="Aryan Sharma">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <h2 class="student-name-title">Aryan Sharma</h2>
+              <span style="background:var(--gold); color:var(--green-dark); font-size:0.72rem; font-weight:800; padding:2px 8px; border-radius:6px;">
+                Verified Student
+              </span>
+            </div>
+            <p class="student-meta-sub">
+              Class 12 (CBSE + JEE Main Aspirant) • Malviya Nagar, Jaipur
+            </p>
+            <p style="font-size:0.78rem; color:rgba(247,243,234,0.65); margin-top:2px;">
+              Parent Contact: Suman Joshi (+91 98765 43210)
+            </p>
+
+            <div class="student-stat-pill-group">
+              <span class="student-stat-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                48 Lesson Hours Done
+              </span>
+              <span class="student-stat-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                99% Regularity
+              </span>
+              <span class="student-stat-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Wellbeing: 92/100 (Calm)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <a href="wellbeing.html" style="display:inline-flex; align-items:center; gap:6px; padding:10px 18px; border-radius:12px; background:rgba(255,255,255,0.12); color:#FFF; font-size:0.82rem; font-weight:700; text-decoration:none; border:1px solid rgba(212,164,55,0.3);">
+            <span>Take Weekly Mood Check</span>
+            <span>→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- My Hired Home Tutors & Subject Slots Section -->
+      <section style="margin-bottom:32px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <div>
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--green-primary); letter-spacing:-0.02em;">
+              My Hired Home Tutors &amp; Learning Slots
+            </h3>
+            <p style="font-size:0.82rem; color:var(--text-muted);">
+              Manage your personal educators. Click any unhired slot (+) to search top verified tutors in your city.
+            </p>
+          </div>
+          <a href="search.html" style="font-size:0.82rem; font-weight:700; color:var(--gold-hover); text-decoration:none;">
+            Browse All Jaipur Tutors →
+          </a>
+        </div>
+
+        <!-- 4-Slot Grid: Hired Teachers + Plus Boxes -->
+        <div class="hired-teachers-grid">
+          
+          <!-- Slot 1: HIRED TEACHER (Physics) with "Visit Teacher Profile" button -->
+          <div class="hired-teacher-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+              <span class="hired-badge-active">● Hired Teacher</span>
+              <span style="font-size:0.72rem; color:var(--gold-hover); font-weight:800; background:var(--gold-soft); padding:2px 8px; border-radius:4px;">
+                Rank 1 in Jaipur
+              </span>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:center; margin:10px 0 14px 0;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" style="width:52px; height:52px; border-radius:14px; object-fit:cover; border:2px solid var(--gold);" alt="Dr. Rajeshwar">
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--green-primary);">Dr. Rajeshwar Sharma</h4>
+                <p style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Physics • JEE &amp; Board Focus</p>
+                <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
+                  <span style="color:var(--gold); display:inline-flex; gap:2px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                  <span style="font-size:0.72rem; font-weight:800; color:var(--text-dark);">4.95 Rating</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Schedule info -->
+            <div style="background:#F6F8F7; border-radius:10px; padding:10px; font-size:0.75rem; color:var(--text-body); margin-bottom:14px;">
+              <div><strong>Next Session:</strong> Tomorrow at 5:30 PM</div>
+              <div style="color:var(--text-muted); margin-top:2px;">Topic: Wave Optics Concept Clearing</div>
+            </div>
+
+            <!-- Action Button: Visit Teacher Profile (Dedicated Separate Page) -->
+            <a href="tutor-profile.html?id=tutor-1" class="btn-visit-teacher" style="text-decoration:none;">
+              <span>Visit Your Teacher's Profile</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Slot 2: NOT HIRED (Mathematics) -> + Box (Clicks to Search Maths Tutors) -->
+          <a href="search.html?subject=Mathematics&city=jaipur" class="add-teacher-box" title="Click to search Mathematics home tutors in Jaipur">
+            <div class="plus-icon-circle">+</div>
+            <h4 class="add-teacher-title">Hire Mathematics Tutor</h4>
+            <p class="add-teacher-sub">
+              No Maths educator hired yet. Click to view Jaipur's top calculus &amp; algebra mentors.
+            </p>
+            <span style="margin-top:12px; font-size:0.75rem; font-weight:800; color:var(--gold-hover);">
+              Browse Maths Tutors →
+            </span>
+          </a>
+
+          <!-- Slot 3: NOT HIRED (Chemistry) -> + Box (Clicks to Search Chemistry Tutors) -->
+          <a href="search.html?subject=Chemistry&city=jaipur" class="add-teacher-box" title="Click to search Chemistry home tutors in Jaipur">
+            <div class="plus-icon-circle">+</div>
+            <h4 class="add-teacher-title">Hire Chemistry Tutor</h4>
+            <p class="add-teacher-sub">
+              Need organic mechanisms help? Click to find verified Chemistry tutors in Malviya Nagar.
+            </p>
+            <span style="margin-top:12px; font-size:0.75rem; font-weight:800; color:var(--gold-hover);">
+              Browse Chemistry Tutors →
+            </span>
+          </a>
+
+          <!-- Slot 4: NOT HIRED (Coding / Biology) -> + Box -->
+          <a href="search.html?city=jaipur" class="add-teacher-box" title="Click to search any subject tutor">
+            <div class="plus-icon-circle">+</div>
+            <h4 class="add-teacher-title">Add Extra Subject Tutor</h4>
+            <p class="add-teacher-sub">
+              Biology, Coding, English, or Mental Counseling. Click to explore all verified profiles.
+            </p>
+            <span style="margin-top:12px; font-size:0.75rem; font-weight:800; color:var(--gold-hover);">
+              Explore All Tutors →
+            </span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Student Study Plan & Home Learning Wellbeing Section -->
+      <div class="bento-lower-row">
+        
+        <!-- Attendance & Session Log -->
+        <div class="dashboard-card">
+          <div class="card-header-row">
+            <h3 class="card-header-title">Recent Completed Home Lessons</h3>
+            <span style="font-size:0.75rem; font-weight:700; color:#10B981;">100% Attendance</span>
+          </div>
+
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-info">
+                <div style="width:36px; height:36px; border-radius:8px; background:rgba(16,63,52,0.06); display:flex; align-items:center; justify-content:center; color:var(--green-primary); flex-shrink:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <div>
+                  <h4 class="activity-name">Ray Optics Numerical Doubt Clearing</h4>
+                  <p class="activity-meta">Dr. Rajeshwar Sharma • 1 hr 30 min • Home Visit</p>
+                </div>
+              </div>
+              <span style="font-size:0.78rem; font-weight:800; color:#10B981;">Completed</span>
+            </div>
+
+            <div class="activity-item">
+              <div class="activity-info">
+                <div style="width:36px; height:36px; border-radius:8px; background:rgba(16,63,52,0.06); display:flex; align-items:center; justify-content:center; color:var(--green-primary); flex-shrink:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </div>
+                <div>
+                  <h4 class="activity-name">Electric Charges &amp; Fields Revision</h4>
+                  <p class="activity-meta">Dr. Rajeshwar Sharma • 1 hr • Home Visit</p>
+                </div>
+              </div>
+              <span style="font-size:0.78rem; font-weight:800; color:#10B981;">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parent Feedback & Rating Card -->
+        <div class="dashboard-card">
+          <div class="card-header-row">
+            <h3 class="card-header-title">Parent &amp; Student Rating Log</h3>
+            <a href="rankings.html" class="card-header-link">How Ranking Works →</a>
+          </div>
+
+          <p style="font-size:0.8rem; color:var(--text-body); line-height:1.5; margin-bottom:12px;">
+            Your feedback directly powers the <strong>4-Factor City Ranking</strong> for teachers in Jaipur.
+          </p>
+
+          <div style="background:#F6F8F7; border-radius:12px; padding:14px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <strong style="font-size:0.85rem; color:var(--green-primary);">Dr. Rajeshwar Sharma</strong>
+              <span style="color:var(--gold); display:inline-flex; gap:2px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            </div>
+            <p style="font-size:0.78rem; color:var(--text-body); font-style:italic;">
+              "Sir explains with real patience. Never compares me with others. I feel 10x more confident in physics now!"
+            </p>
+            <span style="font-size:0.7rem; color:var(--text-muted); display:block; margin-top:4px;">
+              Submitted by Aryan (Student) • Verified Session
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- TEACHER PROFILE MODAL (Triggered when clicking "Visit Your Teacher's Profile") -->
+  <div id="teacherModal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.6); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#FFFFFF; border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; padding:32px; box-shadow:0 20px 60px rgba(0,0,0,0.2); position:relative;">
+      
+      <button onclick="closeTeacherModal()" style="position:absolute; top:20px; right:20px; width:34px; height:34px; border-radius:50%; background:#F8F6F1; border:1px solid var(--border-light); cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-muted);" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div style="display:flex; gap:20px; align-items:center; margin-bottom:20px;">
+        <img id="modalTutorImg" src="" style="width:74px; height:74px; border-radius:18px; object-fit:cover; border:2px solid var(--gold);" alt="Tutor">
+        <div>
+          <span id="modalTutorBadge" style="font-size:0.72rem; font-weight:800; color:var(--gold-hover); background:var(--gold-soft); padding:3px 8px; border-radius:6px;"></span>
+          <h2 id="modalTutorName" style="font-size:1.4rem; font-weight:800; color:var(--green-primary); margin:4px 0 2px 0;"></h2>
+          <p id="modalTutorMeta" style="font-size:0.82rem; color:var(--text-muted);"></p>
+        </div>
+      </div>
+
+      <!-- Formula Metrics -->
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; background:#F8FAFD; border-radius:12px; padding:12px; text-align:center; margin-bottom:18px;">
+        <div>
+          <span style="font-size:0.65rem; color:var(--text-muted); display:block;">Student (35%)</span>
+          <span id="modalStudentScore" style="font-size:0.95rem; font-weight:800; color:var(--green-primary);"></span>
+        </div>
+        <div>
+          <span style="font-size:0.65rem; color:var(--text-muted); display:block;">Parent (25%)</span>
+          <span id="modalParentScore" style="font-size:0.95rem; font-weight:800; color:#3B82F6;"></span>
+        </div>
+        <div>
+          <span style="font-size:0.65rem; color:var(--text-muted); display:block;">Regular (20%)</span>
+          <span id="modalAttendance" style="font-size:0.95rem; font-weight:800; color:#8B5CF6;"></span>
+        </div>
+        <div>
+          <span style="font-size:0.65rem; color:var(--text-muted); display:block;">Result (20%)</span>
+          <span id="modalImprovement" style="font-size:0.95rem; font-weight:800; color:#F59E0B;"></span>
+        </div>
+      </div>
+
+      <h4 style="font-size:0.85rem; font-weight:800; color:var(--green-primary); text-transform:uppercase; margin-bottom:6px;">
+        Teaching Philosophy
+      </h4>
+      <p id="modalTutorAbout" style="font-size:0.85rem; color:var(--text-body); line-height:1.6; margin-bottom:16px;"></p>
+
+      <h4 style="font-size:0.85rem; font-weight:800; color:var(--green-primary); text-transform:uppercase; margin-bottom:8px;">
+        Verified Degrees &amp; Police Clearance
+      </h4>
+      <div id="modalDegrees" style="display:flex; flex-direction:column; gap:6px; margin-bottom:20px;"></div>
+
+      <div style="display:flex; gap:12px;">
+        <button onclick="alert('WhatsApp connection opened with Dr. Rajeshwar Sharma for doubt clearing.')" style="flex:1; padding:12px; background:var(--green-primary); color:#FFF; font-weight:800; font-size:0.85rem; border-radius:10px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Send Doubt to Teacher</span>
+        </button>
+        <button onclick="closeTeacherModal()" style="padding:12px 20px; background:#F0F3F8; color:var(--text-dark); font-weight:700; font-size:0.85rem; border-radius:10px; border:none; cursor:pointer;">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="shared-data.js"></script>
+  <script>
+    function openTeacherModal(tutorId) {
+      const tutor = getTutorById(tutorId);
+      document.getElementById('modalTutorImg').src = tutor.avatar;
+      document.getElementById('modalTutorBadge').innerText = tutor.badgeTitle;
+      document.getElementById('modalTutorName').innerText = tutor.name;
+      document.getElementById('modalTutorMeta').innerText = tutor.experienceYears + ' Yrs Exp • ' + tutor.subjects.join(', ') + ' • ₹' + tutor.hourlyRate + '/hr';
+      document.getElementById('modalStudentScore').innerText = tutor.ratingBreakdown.studentScore;
+      document.getElementById('modalParentScore').innerText = tutor.ratingBreakdown.parentScore;
+      document.getElementById('modalAttendance').innerText = tutor.ratingBreakdown.attendance + '%';
+      document.getElementById('modalImprovement').innerText = '+' + tutor.ratingBreakdown.improvement + '%';
+      document.getElementById('modalTutorAbout').innerText = tutor.about;
+      document.getElementById('modalDegrees').innerHTML = tutor.degrees.map(d => `
+        <div style="display:flex; align-items:center; gap:8px; font-size:0.8rem; color:#121816;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>${d}</span>
+        </div>
+      `).join('');
+
+      const modal = document.getElementById('teacherModal');
+      modal.style.display = 'flex';
+    }
+
+    function closeTeacherModal() {
+      document.getElementById('teacherModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
